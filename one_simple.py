@@ -26,13 +26,25 @@ def headliner(url):
         this_url = urllib.urlopen(url).read()
         #creates a new BS holder based on the URL
         soup = BeautifulSoup(this_url, 'lxml')
-        #creates the sections
-        headline = soup.find_all('title')
-        print "headline = %s" % (headline)
 
+        #creates the headline section
+        headline_text = ''
+        headline = soup.find_all('title')
+        for element in headline:
+                headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        print headline_text
+
+        #print "headline = %s" % (headline)
+
+        #creats the body text
+        #This turns the htlm text into regular text
         article_text = ''
+        #This finds each paragraph
         article = soup.find("div", {"id" : "storytext"}).findAll('p')
+        #for each paragraph
         for element in article:
+            #add a line break and then the text part of the paragraph
+            #the .encode part fixes unicode bullshit
             article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
         print article_text
         #body = soup.find("div", {"id" : "storytext"})
@@ -40,9 +52,10 @@ def headliner(url):
         #print "bodytext = %s" % (body)
 
 
-        output_txt.write(str(headline))
+        output_txt.write(str(headline_text))
         output_txt.write("\n")
-        output_txt.write(str(headline))
+        output_txt.write("\n")
+        output_txt.write(str(headline_text))
         output_txt.write("\n")
         output_txt.write(str(article_text))
 
