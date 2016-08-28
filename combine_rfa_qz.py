@@ -3,6 +3,9 @@ import urllib
 #csv is for the csv writer
 import csv
 
+#this will hold the output
+holder = {}
+
 
 
 #opens the input doc
@@ -39,12 +42,12 @@ def headliner(url):
             headline = soup.find_all('title')
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-            print headline_text
+
 
 
 
             #creats the body text
-            #This turns the htlm text into regular text
+            #This turns the html text into regular text
             article_text = ''
             #This finds each paragraph
             article = soup.find("div", {"id" : "storytext"}).findAll('p')
@@ -53,12 +56,11 @@ def headliner(url):
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
                 article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
-            print article_text
-            #body = soup.find("div", {"id" : "storytext"})
+
+            holder[headline_text] = article_text
 
 
-
-
+            """
             output_txt.write(str(headline_text))
             output_txt.write("\n")
             output_txt.write("\r")
@@ -71,6 +73,7 @@ def headliner(url):
             output_txt.write("\r")
             output_txt.write("\r")
             output_txt.write("\r")
+            """
 
         if "qz" in row_contents:
             #opens the url for read access
@@ -84,7 +87,7 @@ def headliner(url):
             headline = soup.find_all('h1')
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-            print headline_text
+
 
 
 
@@ -98,12 +101,12 @@ def headliner(url):
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
                 article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
-            print article_text
 
 
 
+            holder[headline_text] = article_text
 
-
+            """
             output_txt.write(str(headline_text))
             output_txt.write("\n")
             output_txt.write("\r")
@@ -116,11 +119,28 @@ def headliner(url):
             output_txt.write("\r")
             output_txt.write("\r")
             output_txt.write("\r")
+            """
 
         else:
-            print "not an RFA story"
+            print "not a story from a known source"
 
 headliner(txt)
+
+print holder
+
+for head, body in holder.items():
+    output_txt.write(str(head))
+    output_txt.write("\r")
+    output_txt.write("\r")
+
+for head, body in holder.items():
+    output_txt.write("\r")
+    output_txt.write(str(head))
+    output_txt.write("\r")
+    output_txt.write("\r")
+    output_txt.write(str(body))
+    output_txt.write("\r")
+
 
 
 txt.close()
