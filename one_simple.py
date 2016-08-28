@@ -30,14 +30,22 @@ def headliner(url):
         headline = soup.find_all('title')
         print "headline = %s" % (headline)
 
-        body = soup.find("p", {"id" : "storytext"})
-        print "bodytext = %s" % (body)
+        article_text = ''
+        article = soup.find("div", {"id" : "storytext"}).findAll('p')
+        for element in article:
+            article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        print article_text
+        #body = soup.find("div", {"id" : "storytext"})
+
+        #print "bodytext = %s" % (body)
+
 
         output_txt.write(str(headline))
         output_txt.write("\n")
         output_txt.write(str(headline))
         output_txt.write("\n")
-        output_txt.write(str(body))
+        output_txt.write(str(article_text))
+
     else:
         print "not an RFA story"
 
