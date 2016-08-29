@@ -38,7 +38,7 @@ def headliner(url):
             soup = BeautifulSoup(this_url, 'lxml')
 
             #creates the headline section
-            headline_text = ''
+            headline_text = 'Radio Free Asia: '
             headline = soup.find_all('title')
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
@@ -48,7 +48,7 @@ def headliner(url):
 
             #creats the body text
             #This turns the html text into regular text
-            article_text = ''
+            article_text = row_contents + "\n" + "\r"
             #This finds each paragraph
             article = soup.find("div", {"id" : "storytext"}).findAll('p')
             #for each paragraph
@@ -83,7 +83,7 @@ def headliner(url):
 
 
             #creates the headline section
-            headline_text = ''
+            headline_text = 'Quartz: '
             headline = soup.find_all('h1')
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
@@ -93,7 +93,7 @@ def headliner(url):
 
             #creats the body text
             #This turns the htlm text into regular text
-            article_text = ''
+            article_text = row_contents + "\n" + "\r"
             #This finds each paragraph
             article = soup.find("div", {"class" : "item-body"}).findAll('p')
             #for each paragraph
@@ -126,12 +126,18 @@ def headliner(url):
 
 headliner(txt)
 
+#this is just for debugging
 print holder
 
+#iterates through the headlines in holder and writes them to the doc
+#this is the TOC
 for head, body in holder.items():
     output_txt.write(str(head))
     output_txt.write("\r")
     output_txt.write("\r")
+
+#iterates through the headlines and body in holder and writes them to doc
+#this is the body of the email
 
 for head, body in holder.items():
     output_txt.write("\r")
