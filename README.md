@@ -5,4 +5,4 @@ one-simple.py reads a single URL from a txt file and prints the headline and sto
 
 combine_rfa_qz.py is the most up to date functioning version. 
 
-qz_simple.py can be used as a template to add new sites
+adder.py should be used to test new site configurations.
