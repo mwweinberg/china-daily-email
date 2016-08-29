@@ -14,7 +14,7 @@ txt = open("china-daily-email-stable.csv")
 #inputs = txt.read()
 
 #opens the output doc
-output_txt = open("china-daily-email-stable.txt", "w")
+output_txt = open("china-daily-email-working.txt", "w")
 
 print txt
 
@@ -60,20 +60,6 @@ def headliner(url):
             holder[headline_text] = article_text
 
 
-            """
-            output_txt.write(str(headline_text))
-            output_txt.write("\n")
-            output_txt.write("\r")
-            output_txt.write("\r")
-            output_txt.write(str(headline_text))
-            output_txt.write("\n")
-            output_txt.write(str(article_text))
-            output_txt.write("\n")
-            output_txt.write("\r")
-            output_txt.write("\r")
-            output_txt.write("\r")
-            output_txt.write("\r")
-            """
 
         if "qz" in row_contents:
             #opens the url for read access
@@ -106,22 +92,9 @@ def headliner(url):
 
             holder[headline_text] = article_text
 
-            """
-            output_txt.write(str(headline_text))
-            output_txt.write("\n")
-            output_txt.write("\r")
-            output_txt.write("\r")
-            output_txt.write(str(headline_text))
-            output_txt.write("\n")
-            output_txt.write(str(article_text))
-            output_txt.write("\n")
-            output_txt.write("\r")
-            output_txt.write("\r")
-            output_txt.write("\r")
-            output_txt.write("\r")
-            """
 
-        if "foreignpolicy" in row_contents:
+
+        elif "foreignpolicy" in row_contents:
             #opens the url for read access
             this_url = urllib.urlopen(row_contents).read()
             #creates a new BS holder based on the URL
@@ -142,6 +115,64 @@ def headliner(url):
             #This finds each paragraph
 
             article = soup.find("div", {"class" : "shares-position"}).findAll('p')
+            #for each paragraph
+            for element in article:
+                #add a line break and then the text part of the paragraph
+                #the .encode part fixes unicode bullshit
+                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+            holder[headline_text] = article_text
+
+        elif "sixthtone" in row_contents:
+            #opens the url for read access
+            this_url = urllib.urlopen(row_contents).read()
+            #creates a new BS holder based on the URL
+            soup = BeautifulSoup(this_url, 'lxml')
+
+            #creates the headline section
+            headline_text = 'Sixth Tone: '
+            headline = soup.find_all('h3', {"class":"heading-1"})
+            for element in headline:
+                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+
+
+
+            #creats the body text
+            #This turns the html text into regular text
+            article_text = row_contents + "\n" + "\r"
+            #This finds each paragraph
+
+            article = soup.find("div", {"class" : "content"}).findAll('p')
+            #for each paragraph
+            for element in article:
+                #add a line break and then the text part of the paragraph
+                #the .encode part fixes unicode bullshit
+                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+            holder[headline_text] = article_text
+
+        elif "washingtonpost" in row_contents:
+            #opens the url for read access
+            this_url = urllib.urlopen(row_contents).read()
+            #creates a new BS holder based on the URL
+            soup = BeautifulSoup(this_url, 'lxml')
+
+            #creates the headline section
+            headline_text = 'Washington Post: '
+            headline = soup.find_all('h1')
+            for element in headline:
+                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+
+
+
+            #creats the body text
+            #This turns the html text into regular text
+            article_text = row_contents + "\n" + "\r"
+            #This finds each paragraph
+
+            article = soup.find("div", {"id" : "article-body"}).findAll('p')
             #for each paragraph
             for element in article:
                 #add a line break and then the text part of the paragraph
