@@ -5,6 +5,8 @@ import csv
 
 #this will hold the output
 holder = {}
+#this will hold the unmatched URLs output
+unmatched_holder = []
 
 
 
@@ -61,7 +63,7 @@ def headliner(url):
 
 
 
-        if "qz" in row_contents:
+        elif "qz" in row_contents:
             #opens the url for read access
             this_url = urllib.urlopen(row_contents).read()
             #creates a new BS holder based on the URL
@@ -328,11 +330,20 @@ def headliner(url):
 
         else:
             print "not a story from a known source"
+            unmatched_holder.append(row_contents)
+
 
 headliner(txt)
 
 #this is just for debugging
 #print holder
+#print "unmatched holder is %s" % (unmatched_holder)
+
+#iterates through the unmatched urls in unmatched_holder and writes them to the doc
+for item in unmatched_holder:
+    output_txt.write("cannot process %s" %(str(item)))
+    output_txt.write("\r")
+    output_txt.write("\r")
 
 #iterates through the headlines in holder and writes them to the doc
 #this is the TOC
