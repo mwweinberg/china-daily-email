@@ -448,6 +448,35 @@ def headliner(url):
 
             holder[headline_text] = article_text
 
+        elif "scmp" in row_contents:
+            #opens the url for read access
+            this_url = urllib.urlopen(row_contents).read()
+            #creates a new BS holder based on the URL
+            soup = BeautifulSoup(this_url, 'lxml')
+
+            #creates the headline section
+            headline_text = 'SCMP: '
+            headline = soup.find_all('h1', {"itemprop": "name headline"}, {"class": "title", "id":"page-title"})
+            for element in headline:
+                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+
+
+
+            #creats the body text
+            #This turns the html text into regular text
+            article_text = row_contents + "\n" + "\r"
+            #This finds each paragraph
+            article = soup.find_all('p')
+
+            #for each paragraph
+            for element in article:
+                #add a line break and then the text part of the paragraph
+                #the .encode part fixes unicode bullshit
+                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+            holder[headline_text] = article_text
+
         else:
             print "not a story from a known source"
             unmatched_holder.append(row_contents)
