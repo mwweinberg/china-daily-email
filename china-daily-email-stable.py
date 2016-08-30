@@ -210,13 +210,42 @@ def headliner(url):
 
             holder[headline_text] = article_text
 
+        elif "wsj" in row_contents:
+            #opens the url for read access
+            this_url = urllib.urlopen(row_contents).read()
+            #creates a new BS holder based on the URL
+            soup = BeautifulSoup(this_url, 'lxml')
+
+            #creates the headline section
+            headline_text = 'WSJ: '
+            headline = soup.find_all('h1')
+            for element in headline:
+                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+
+
+
+            #creats the body text
+            #This turns the html text into regular text
+            article_text = row_contents + "\n" + "\r"
+            #This finds each paragraph
+
+            article = soup.find("div", {"id" : "wsj-article-wrap"}).findAll('p')
+            #for each paragraph
+            for element in article:
+                #add a line break and then the text part of the paragraph
+                #the .encode part fixes unicode bullshit
+                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+            holder[headline_text] = article_text
+
         else:
             print "not a story from a known source"
 
 headliner(txt)
 
 #this is just for debugging
-print holder
+#print holder
 
 #iterates through the headlines in holder and writes them to the doc
 #this is the TOC
