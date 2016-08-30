@@ -1,0 +1,25 @@
+1. Open URL in chrome
+
+2. add url to adder.txt
+
+3. Make changes to adder.py
+  the syntax for a more complicated one like:
+  article = soup.find("div", {"class" : "entry"}).findAll('p')
+
+  is "find all of the divs with a class=entry. once you have found that specific class, find all of the 'p' and iterate through until you have all of them"
+
+  I think it is important that there is only one "findAll at the end.
+
+4. Run adder.py until it works.
+
+5. Copy from the "if" statement (line 40 as of this writing) through the "holder[headline_text] = article_text" line (line 67 as of this writing)
+
+6. Paste that block below the last "elif" and before the "else" statement in china-daily-email-working.py
+
+7. Add the url to the bottom of china-daily-email-stable.csv
+
+8. Run china-daily-email-working.py to verify it works
+
+9. Save china-daily-email-working.py as china-daily-email-stable.py
+
+10. Upload china-daily-email-working.py to github and say what you added as the commit comment
