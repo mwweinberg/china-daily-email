@@ -14,7 +14,7 @@
 
 5. Copy from the "if" statement (line 40 as of this writing) through the "holder[headline_text] = article_text" line (line 67 as of this writing)
 
-6. Paste that block below the last "elif" and before the "else" statement in china-daily-email-working.py
+6. Paste that block below the last "elif" and before the "else" statement in china-daily-email-working.py. MAKE SURE TO CHANGE THE 'if' from adder to "elif"
 
 7. Add the url to the bottom of china-daily-email-stable.csv
 
