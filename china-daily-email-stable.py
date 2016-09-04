@@ -459,6 +459,7 @@ def headliner(url):
             headline = soup.find_all('h1', {"itemprop": "name headline"}, {"class": "title", "id":"page-title"})
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                    headline_text += "\n"
 
 
 
@@ -491,6 +492,7 @@ headliner(txt)
 #iterates through the unmatched urls in unmatched_holder and writes them to the doc
 for item in unmatched_holder:
     output_txt.write("cannot process %s" %(str(item)))
+    output_txt.write("\n")
     output_txt.write("\r")
     output_txt.write("\r")
 
@@ -499,18 +501,29 @@ for item in unmatched_holder:
 for head, body in holder.items():
     output_txt.write(str(head))
     output_txt.write("\r")
-    output_txt.write("\r")
+
+#creates space between list of headlines and the stories
+output_txt.write("\n")
+output_txt.write("\n")
+output_txt.write("\n")
+output_txt.write("*************************************")
+output_txt.write("\n")
 
 #iterates through the headlines and body in holder and writes them to doc
 #this is the body of the email
 
 for head, body in holder.items():
     output_txt.write("\r")
+    output_txt.write("\n")
     output_txt.write(str(head))
-    output_txt.write("\r")
+    output_txt.write("\n")
     output_txt.write("\r")
     output_txt.write(str(body))
+    output_txt.write("\n")
     output_txt.write("\r")
+    output_txt.write("\n")
+    output_txt.write("\n")
+    output_txt.write("\n")
 
 
 
