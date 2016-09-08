@@ -7,6 +7,7 @@ import urllib
 #csv is for the csv writer
 import csv
 import smtplib
+import imapclient
 
 
 
@@ -30,7 +31,7 @@ try:
         print 'Not able to sign in!'
         raise
 
-    imapSession.select('[Gmail]/All Mail')
+    imapSession.select('INBOX')
     typ, data = imapSession.search(None, 'ALL')
     if typ != 'OK':
         print 'Error searching Inbox.'
@@ -551,9 +552,6 @@ try:
 
     headliner(txt)
 
-    #this is just for debugging
-    #print holder
-    #print "unmatched holder is %s" % (unmatched_holder)
 
     #iterates through the unmatched urls in unmatched_holder and writes them to the doc
     for item in unmatched_holder:
@@ -646,6 +644,24 @@ try:
     os.remove("./attachments/china-daily-email-stable.csv")
 
     #delete the email on the server
+
+    #logs in
+    imapObj = imapclient.IMAPClient('imap.gmail.com', ssl = True)
+    imapObj.login(user_contents, password_contents)
+
+    #picks a folder
+    imapObj.select_folder('INBOX', readonly=False)
+
+    #identifies the messages
+    UIDs = imapObj.search(['ALL'])
+
+    #sets them to delete
+    imapObj.delete_messages(UIDs)
+    #and actually deletes them
+    imapObj.expunge()
+
+    #logs out
+    imapObj.logout()
 
     #imports U/P from other files that are not shared on github
     user = open("user.txt", 'r')
