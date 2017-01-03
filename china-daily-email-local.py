@@ -58,22 +58,21 @@ the diplomat
 
 
 
-#this will hold the output
+#this will hold the output of headliner()
 holder = {}
-#this will hold the unmatched URLs output
+#this will hold the unmatched URLs output of headliner() - basically it catches the errors
 unmatched_holder = []
 
 
 
-#opens the input doc
+#opens the input doc with the URLs
 txt = open("./attachments/tester.csv")
 #is the contents of the doc
 #inputs = txt.read()
 
-#opens the output doc
+#opens the output doc where the output data will live
 output_txt = open("china-daily-email-local-output.txt", "w")
 
-print txt
 
 def headliner(url):
 
@@ -982,12 +981,12 @@ def headliner(url):
 
 
 
-
+        #if the input URL isn't in the list above, this message will be returned
         else:
             print "not a story from a known source"
             unmatched_holder.append(row_contents)
 
-
+#run headliner()
 headliner(txt)
 
 
