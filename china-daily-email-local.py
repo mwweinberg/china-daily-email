@@ -1,9 +1,4 @@
 
-import time
-import email
-import getpass, imaplib
-import os
-import sys
 from bs4 import BeautifulSoup
 import urllib
 #csv is for the csv writer
