@@ -990,6 +990,7 @@ def headliner(url):
 headliner(txt)
 
 
+
 #iterates through the unmatched urls in unmatched_holder and writes them to the doc
 for item in unmatched_holder:
     output_txt.write("cannot process %s" %(str(item)))
@@ -999,6 +1000,7 @@ for item in unmatched_holder:
 
 #iterates through the headlines in holder and writes them to the doc
 #this is the TOC
+#this is where "headline_text" becomes "head" and "article_text" becomes "body"
 for head, body in holder.items():
     output_txt.write(str(head))
     output_txt.write("\r")
