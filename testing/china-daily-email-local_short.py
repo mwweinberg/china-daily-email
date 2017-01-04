@@ -56,6 +56,8 @@ the diplomat
 
 """
 
+#data structure is now a list of dictionaries:
+# holder = [{'story_URL': TheURL, 'story_title': TheTitle, 'story_body': TheBody},{'story_URL': TheURL, 'story_title': TheTitle, 'story_body': TheBody}, {'story_URL': TheURL, 'story_title': TheTitle, 'story_body': TheBody},]
 
 
 #this will hold the output of headliner()
