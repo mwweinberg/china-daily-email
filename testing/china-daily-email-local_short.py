@@ -73,6 +73,7 @@ txt = open("tester.csv")
 
 #opens the output doc where the output data will live
 output_txt = open("china-daily-email-local-output.txt", "w")
+output_txt2 = open("china-daily-email-local-output2.txt", "w")
 
 
 def headliner(url):
@@ -226,7 +227,7 @@ def headliner(url):
             headline_text = 'China Policy Institute: '
             headline = soup.find_all('h2')
             for element in headline:
-                    headline_text = ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
 
 
@@ -241,7 +242,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             holder[headline_text] = article_text
 
@@ -275,28 +276,48 @@ for topLevel in holder2:
     print topLevel['story_title']
 print
 
-#iterates through the unmatched urls in unmatched_holder and writes them to the doc
+#1iterates through the unmatched urls in unmatched_holder and writes them to the doc
 for item in unmatched_holder:
     output_txt.write("cannot process %s" %(str(item)))
     output_txt.write("\n")
     output_txt.write("\r")
     output_txt.write("\r")
 
-#iterates through the headlines in holder and writes them to the doc
+#1**********holder2 version**************
+for item in unmatched_holder:
+    output_txt2.write("cannot process %s" %(str(item)))
+    output_txt2.write("\n")
+    output_txt2.write("\r")
+    output_txt2.write("\r")
+
+
+#2iterates through the headlines in holder and writes them to the doc
 #this is the TOC
 #this is where "headline_text" becomes "head" and "article_text" becomes "body"
 for head, body in holder.items():
     output_txt.write(str(head))
     output_txt.write("\r")
 
-#creates space between list of headlines and the stories
+#2**********holder2 version**************
+for topLevel in holder2:
+    output_txt2.write(topLevel['story_title'])
+    output_txt2.write("\r")
+
+#3creates space between list of headlines and the stories
 output_txt.write("\n")
 output_txt.write("\n")
 output_txt.write("\n")
 output_txt.write("*************************************")
 output_txt.write("\n")
 
-#iterates through the headlines and body in holder and writes them to doc
+#3**********holder2 version**************
+output_txt.write("\n")
+output_txt.write("\n")
+output_txt.write("\n")
+output_txt.write("*************************************")
+output_txt.write("\n")
+
+#4iterates through the headlines and body in holder and writes them to doc
 #this is the body of the email
 
 for head, body in holder.items():
@@ -312,7 +333,25 @@ for head, body in holder.items():
     output_txt.write("\n")
     output_txt.write("\n")
 
+#4**********holder2 version**************
+for topLevel in holder2:
+    output_txt2.write("\r")
+    output_txt2.write("\n")
+    output_txt2.write(topLevel['story_title'])
+    output_txt2.write("\n")
+    output_txt2.write("\r")
+    output_txt2.write(topLevel['story_URL'])
+    output_txt2.write("\n")
+    output_txt2.write("\r")
+    output_txt2.write(topLevel['story_body'])
+    output_txt2.write("\n")
+    output_txt2.write("\r")
+    output_txt2.write("\n")
+    output_txt2.write("\n")
+    output_txt2.write("\n")
+
 
 
 txt.close()
 output_txt.close()
+output_txt2.close()
