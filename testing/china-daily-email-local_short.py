@@ -59,8 +59,7 @@ the diplomat
 
 
 #this will hold the output of headliner()
-holder = {}
-holder2 = []
+holder = []
 #this will hold the unmatched URLs output of headliner() - basically it catches the errors
 unmatched_holder = []
 
@@ -72,8 +71,7 @@ txt = open("tester.csv")
 #inputs = txt.read()
 
 #opens the output doc where the output data will live
-output_txt = open("china-daily-email-local-output.txt", "w")
-output_txt2 = open("china-daily-email-local-output2.txt", "w")
+output_txt = open("china-daily-email-local-output2.txt", "w")
 
 
 def headliner(url):
@@ -96,6 +94,8 @@ def headliner(url):
             #to "article_text = '\n' + ''.join . . ."
             #(change += to just =)
         #add the holder2 section at the end
+        # remove the old holder section
+            # delete "holder[headline_text] = article_text"
 
 
         if "rfa" in story_URL:
@@ -120,7 +120,7 @@ def headliner(url):
                 #the .encode part fixes unicode bullshit
                 article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-            holder[headline_text] = article_text
+
 
             #this is the new section for the new holder2
             #temp_dict will hold the info from this entry
@@ -131,7 +131,7 @@ def headliner(url):
             temp_dict['story_body'] = article_text
 
             #now that the temp_dict is full, append it to holder2
-            holder2.append(temp_dict)
+            holder.append(temp_dict)
 
 
 
@@ -163,9 +163,9 @@ def headliner(url):
 
 
 
-            holder[headline_text] = article_text
 
-            #this is the new section for the new holder2
+
+            #this is the new section for the new holder
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
@@ -173,8 +173,8 @@ def headliner(url):
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
 
-            #now that the temp_dict is full, append it to holder2
-            holder2.append(temp_dict)
+            #now that the temp_dict is full, append it to holder
+            holder.append(temp_dict)
 
 
 
@@ -204,7 +204,7 @@ def headliner(url):
                 #the .encode part fixes unicode bullshit
                 article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-            holder[headline_text] = article_text
+
 
             #this is the new section for the new holder2
             #temp_dict will hold the info from this entry
@@ -215,7 +215,7 @@ def headliner(url):
             temp_dict['story_body'] = article_text
 
             #now that the temp_dict is full, append it to holder2
-            holder2.append(temp_dict)
+            holder.append(temp_dict)
 
         elif "cpianalysis" in story_URL:
             #opens the url for read access
@@ -244,8 +244,6 @@ def headliner(url):
                 #the .encode part fixes unicode bullshit
                 article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-            holder[headline_text] = article_text
-
             #this is the new section for the new holder2
             #temp_dict will hold the info from this entry
             temp_dict = {}
@@ -255,7 +253,7 @@ def headliner(url):
             temp_dict['story_body'] = article_text
 
             #now that the temp_dict is full, append it to holder2
-            holder2.append(temp_dict)
+            holder.append(temp_dict)
 
 
         #if the input URL isn't in the list above, this message will be returned
@@ -267,91 +265,57 @@ def headliner(url):
 headliner(txt)
 
 #these are just prints for troubleshooting
-
-
 print
 #for each dictionary in the list holder2
-for topLevel in holder2:
+for topLevel in holder:
     #print the entry the corresponds with the story_title key
     print topLevel['story_title']
 print
 
 #1iterates through the unmatched urls in unmatched_holder and writes them to the doc
+
 for item in unmatched_holder:
     output_txt.write("cannot process %s" %(str(item)))
     output_txt.write("\n")
     output_txt.write("\r")
     output_txt.write("\r")
 
-#1**********holder2 version**************
-for item in unmatched_holder:
-    output_txt2.write("cannot process %s" %(str(item)))
-    output_txt2.write("\n")
-    output_txt2.write("\r")
-    output_txt2.write("\r")
-
 
 #2iterates through the headlines in holder and writes them to the doc
 #this is the TOC
-#this is where "headline_text" becomes "head" and "article_text" becomes "body"
-for head, body in holder.items():
-    output_txt.write(str(head))
-    output_txt.write("\r")
 
-#2**********holder2 version**************
-for topLevel in holder2:
-    output_txt2.write(topLevel['story_title'])
-    output_txt2.write("\r")
+for topLevel in holder:
+    output_txt.write(topLevel['story_title'])
+    output_txt.write("\r")
 
 #3creates space between list of headlines and the stories
+
 output_txt.write("\n")
 output_txt.write("\n")
 output_txt.write("\n")
 output_txt.write("*************************************")
 output_txt.write("\n")
 
-#3**********holder2 version**************
-output_txt.write("\n")
-output_txt.write("\n")
-output_txt.write("\n")
-output_txt.write("*************************************")
-output_txt.write("\n")
+#4iterates through the headlines, URL, and body in holder and writes them to doc
 
-#4iterates through the headlines and body in holder and writes them to doc
-#this is the body of the email
-
-for head, body in holder.items():
+for topLevel in holder:
     output_txt.write("\r")
     output_txt.write("\n")
-    output_txt.write(str(head))
+    output_txt.write(topLevel['story_title'])
     output_txt.write("\n")
     output_txt.write("\r")
-    output_txt.write(str(body))
+    output_txt.write(topLevel['story_URL'])
+    output_txt.write("\n")
+    output_txt.write("\r")
+    output_txt.write(topLevel['story_body'])
     output_txt.write("\n")
     output_txt.write("\r")
     output_txt.write("\n")
     output_txt.write("\n")
     output_txt.write("\n")
-
-#4**********holder2 version**************
-for topLevel in holder2:
-    output_txt2.write("\r")
-    output_txt2.write("\n")
-    output_txt2.write(topLevel['story_title'])
-    output_txt2.write("\n")
-    output_txt2.write("\r")
-    output_txt2.write(topLevel['story_URL'])
-    output_txt2.write("\n")
-    output_txt2.write("\r")
-    output_txt2.write(topLevel['story_body'])
-    output_txt2.write("\n")
-    output_txt2.write("\r")
-    output_txt2.write("\n")
-    output_txt2.write("\n")
-    output_txt2.write("\n")
 
 
 
 txt.close()
+
 output_txt.close()
-output_txt2.close()
