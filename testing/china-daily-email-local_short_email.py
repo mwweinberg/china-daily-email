@@ -81,7 +81,7 @@ unmatched_holder = []
 #opens the input doc with the URLs
 txt = open("tester2col.csv")
 #opens the output doc where the output data will live
-output_txt = open("china-daily-email-local-output.txt", "w")
+output_txt = open("china-daily-email-error-output.txt", "w")
 
 #****************************************
 #*****This is for the email version******
@@ -497,6 +497,10 @@ for item in unmatched_holder:
     output_txt.write("\r")
     output_txt.write("\r")
 
+#keeping this text output section in case it is useful
+#if not entire section can be deleted
+#it will still produce the error document
+"""
 
 #2iterates through the headlines in holder and writes them to the doc
 #this is the TOC
@@ -561,6 +565,7 @@ for topLevel in holder_cat_2:
     output_txt.write("\n")
     output_txt.write("\n")
     output_txt.write("\n")
+"""
 
 #***************************************************
 #**********End text output section******************
