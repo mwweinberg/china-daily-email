@@ -3,8 +3,18 @@ from bs4 import BeautifulSoup
 import urllib
 #csv is for the csv writer
 import csv
-import smtplib
-import imapclient
+
+#TODO in holder():changes you need to make to each entry
+#stop adding the URL to the start of the body text
+    #delete "article_text = url + "\n" + "\r""
+#declare article_text now that you have delted that line
+    #change "article_text += '\n' + ''.join . . ."
+    #to "article_text = '\n' + ''.join . . ."
+    #(change += to just =)
+#add the holder2 section at the end
+# remove the old holder section
+    # delete "holder[headline_text] = article_text"
+
 
 """
 Included Sources:
@@ -57,52 +67,45 @@ the diplomat
 """
 
 #data structure is now a list of dictionaries:
-# holder = [{'story_URL': TheURL, 'story_title': TheTitle, 'story_body': TheBody},{'story_URL': TheURL, 'story_title': TheTitle, 'story_body': TheBody}, {'story_URL': TheURL, 'story_title': TheTitle, 'story_body': TheBody},]
+# holder = [{'url': TheURL, 'story_title': TheTitle, 'story_body': TheBody},{'url': TheURL, 'story_title': TheTitle, 'story_body': TheBody}, {'url': TheURL, 'story_title': TheTitle, 'story_body': TheBody},]
 
-
-#this will hold the output of headliner()
-holder = []
+# legacy holder for initial testing
+#holder = []
+#this will hold the output of headliner() for category 1 stories
+holder_cat_1 = []
+#this will hold the output of headliner() for category 2 stories
+holder_cat_2 = []
 #this will hold the unmatched URLs output of headliner() - basically it catches the errors
 unmatched_holder = []
 
 
 
 #opens the input doc with the URLs
-txt = open("tester.csv")
+txt = open("tester2col.csv")
 #is the contents of the doc
 #inputs = txt.read()
 
 #opens the output doc where the output data will live
-output_txt = open("china-daily-email-local-output2.txt", "w")
+output_txt = open("china-daily-email-local-output2-new.txt", "w")
 
-
+#this builds a set of dictionaries with all of the stories and their contents
+#sorted by the category code
 def headliner(url):
 
-    #iterate through the urls
-
-    parsed_urls = csv.reader(url)
-    for row in parsed_urls:
-
-        number = 0
-        story_URL = row[number]
-        print "story_URL = %s" %(story_URL)
-        number += 1
-
-        #TODO:changes you need to make to each entry
-        #stop adding the URL to the start of the body text
-            #delete "article_text = story_URL + "\n" + "\r""
-        #declare article_text now that you have delted that line
-            #change "article_text += '\n' + ''.join . . ."
-            #to "article_text = '\n' + ''.join . . ."
-            #(change += to just =)
-        #add the holder2 section at the end
-        # remove the old holder section
-            # delete "holder[headline_text] = article_text"
+    #creates dictionary called url_dict out of csv file
+    url_csv = csv.reader(txt)
+    url_dict = dict((rows[0],rows[1]) for rows in url_csv)
 
 
-        if "rfa" in story_URL:
+    # assigns meaningful variable name to the columns in the csv
+    # and iterates through them one at a time
+    # looking for a condition match
+    for url, code in url_dict.items():
+
+        # if the story is from RFA and the code is 1
+        if "rfa" in url and code == '1':
             #opens the url for read access
-            this_url = urllib.urlopen(story_URL).read()
+            this_url = urllib.urlopen(url).read()
             #creates a new BS holder based on the URL
             soup = BeautifulSoup(this_url, 'lxml')
 
@@ -128,18 +131,55 @@ def headliner(url):
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
-            temp_dict['story_URL'] = story_URL
+            temp_dict['url'] = url
+            temp_dict['story_title'] = headline_text
+            temp_dict['story_body'] = article_text
+
+            #now that the temp_dict is full, append it to holder1
+            #because it is story category 1
+            holder_cat_1.append(temp_dict)
+
+        # if the story is from RFA and the code is 2
+        elif "rfa" in url and code == '2':
+            #opens the url for read access
+            this_url = urllib.urlopen(url).read()
+            #creates a new BS holder based on the URL
+            soup = BeautifulSoup(this_url, 'lxml')
+
+            #creates the headline section
+            headline_text = 'Radio Free Asia: '
+            headline = soup.find_all('title')
+            for element in headline:
+                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+            #creats the body text
+            #This turns the html text into regular text
+            #This finds each paragraph
+            article = soup.find("div", {"id" : "storytext"}).findAll('p')
+            #for each paragraph
+            for element in article:
+                #add a line break and then the text part of the paragraph
+                #the .encode part fixes unicode bullshit
+                article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+
+
+            #this is the new section for the new holder2
+            #temp_dict will hold the info from this entry
+            temp_dict = {}
+            #this will load the variables into the temp_dict
+            temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
 
             #now that the temp_dict is full, append it to holder2
-            holder.append(temp_dict)
+            #because it is story category 2
+            holder_cat_2.append(temp_dict)
 
 
-
-        elif "qz" in story_URL:
+        elif "qz" in url and code == "1":
             #opens the url for read access
-            this_url = urllib.urlopen(story_URL).read()
+            this_url = urllib.urlopen(url).read()
             #creates a new BS holder based on the URL
             soup = BeautifulSoup(this_url, 'lxml')
 
@@ -171,18 +211,58 @@ def headliner(url):
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
-            temp_dict['story_URL'] = story_URL
+            temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
 
             #now that the temp_dict is full, append it to holder
-            holder.append(temp_dict)
+            holder_cat_1.append(temp_dict)
 
-
-
-        elif "sixthtone" in story_URL:
+        elif "qz" in url and code == "2":
             #opens the url for read access
-            this_url = urllib.urlopen(story_URL).read()
+            this_url = urllib.urlopen(url).read()
+            #creates a new BS holder based on the URL
+            soup = BeautifulSoup(this_url, 'lxml')
+
+
+            #creates the headline section
+            headline_text = 'Quartz: '
+            headline = soup.find_all('h1')
+            for element in headline:
+                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+
+
+
+            #creats the body text
+            #This turns the htlm text into regular text
+            #This finds each paragraph
+            article = soup.find("div", {"class" : "item-body"}).findAll('p')
+            #for each paragraph
+            for element in article:
+                #add a line break and then the text part of the paragraph
+                #the .encode part fixes unicode bullshit
+                article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+
+
+
+
+            #this is the new section for the new holder
+            #temp_dict will hold the info from this entry
+            temp_dict = {}
+            #this will load the variables into the temp_dict
+            temp_dict['url'] = url
+            temp_dict['story_title'] = headline_text
+            temp_dict['story_body'] = article_text
+
+            #now that the temp_dict is full, append it to holder
+            holder_cat_2.append(temp_dict)
+
+
+        elif "sixthtone" in url and code == "1":
+            #opens the url for read access
+            this_url = urllib.urlopen(url).read()
             #creates a new BS holder based on the URL
             soup = BeautifulSoup(this_url, 'lxml')
 
@@ -212,16 +292,55 @@ def headliner(url):
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
-            temp_dict['story_URL'] = story_URL
+            temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
 
             #now that the temp_dict is full, append it to holder2
-            holder.append(temp_dict)
+            holder_cat_1.append(temp_dict)
 
-        elif "cpianalysis" in story_URL:
+        elif "sixthtone" in url and code == "2":
             #opens the url for read access
-            this_url = urllib.urlopen(story_URL).read()
+            this_url = urllib.urlopen(url).read()
+            #creates a new BS holder based on the URL
+            soup = BeautifulSoup(this_url, 'lxml')
+
+            #creates the headline section
+            headline_text = 'Sixth Tone: '
+            headline = soup.find_all('h3', {"class":"heading-1"})
+            for element in headline:
+                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+
+
+
+            #creats the body text
+            #This turns the html text into regular text
+            #This finds each paragraph
+
+            article = soup.find("div", {"class" : "content"}).findAll('p')
+            #for each paragraph
+            for element in article:
+                #add a line break and then the text part of the paragraph
+                #the .encode part fixes unicode bullshit
+                article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+
+
+            #this is the new section for the new holder2
+            #temp_dict will hold the info from this entry
+            temp_dict = {}
+            #this will load the variables into the temp_dict
+            temp_dict['url'] = url
+            temp_dict['story_title'] = headline_text
+            temp_dict['story_body'] = article_text
+
+            #now that the temp_dict is full, append it to holder2
+            holder_cat_2.append(temp_dict)
+
+        elif "cpianalysis" in url and code == "1":
+            #opens the url for read access
+            this_url = urllib.urlopen(url).read()
             #creates a new BS holder based on the URL
             soup = BeautifulSoup(this_url, 'lxml')
 
@@ -250,29 +369,60 @@ def headliner(url):
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
-            temp_dict['story_URL'] = story_URL
+            temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
 
             #now that the temp_dict is full, append it to holder2
-            holder.append(temp_dict)
+            holder_cat_1.append(temp_dict)
 
+        elif "cpianalysis" in url and code == "2":
+            #opens the url for read access
+            this_url = urllib.urlopen(url).read()
+            #creates a new BS holder based on the URL
+            soup = BeautifulSoup(this_url, 'lxml')
+
+            #creates the headline section
+            headline_text = 'China Policy Institute: '
+            headline = soup.find_all('h2')
+            for element in headline:
+                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+
+
+
+            #creats the body text
+            #This turns the html text into regular text
+            #this line adds the URL to the output text
+            #This finds each paragraph
+
+            article = soup.find("div", {"class" : "post-content clear"}).find_all('p')
+            #for each paragraph
+            for element in article:
+                #add a line break and then the text part of the paragraph
+                #the .encode part fixes unicode bullshit
+                article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+            #this is the new section for the new holder2
+            #temp_dict will hold the info from this entry
+            temp_dict = {}
+            #this will load the variables into the temp_dict
+            temp_dict['url'] = url
+            temp_dict['story_title'] = headline_text
+            temp_dict['story_body'] = article_text
+
+            #now that the temp_dict is full, append it to holder2
+            holder_cat_2.append(temp_dict)
 
         #if the input URL isn't in the list above, this message will be returned
         else:
             print "not a story from a known source"
-            unmatched_holder.append(story_URL)
+            unmatched_holder.append(url)
 
 #run headliner()
 headliner(txt)
 
-#these are just prints for troubleshooting
-print
-#for each dictionary in the list holder2
-for topLevel in holder:
-    #print the entry the corresponds with the story_title key
-    print topLevel['story_title']
-print
+
 
 #1iterates through the unmatched urls in unmatched_holder and writes them to the doc
 
@@ -285,8 +435,20 @@ for item in unmatched_holder:
 
 #2iterates through the headlines in holder and writes them to the doc
 #this is the TOC
+output_txt.write("Category 1 headlines")
+output_txt.write("\n")
+output_txt.write("\r")
+for topLevel in holder_cat_1:
+    output_txt.write(topLevel['story_title'])
+    output_txt.write("\r")
 
-for topLevel in holder:
+output_txt.write("\n")
+output_txt.write("\r")
+
+output_txt.write("Category 2 headlines")
+output_txt.write("\n")
+output_txt.write("\r")
+for topLevel in holder_cat_2:
     output_txt.write(topLevel['story_title'])
     output_txt.write("\r")
 
@@ -298,15 +460,16 @@ output_txt.write("\n")
 output_txt.write("*************************************")
 output_txt.write("\n")
 
-#4iterates through the headlines, URL, and body in holder and writes them to doc
 
-for topLevel in holder:
+#4a iterates through the stories in category 1
+output_txt.write("#############Category 1 Stories###########")
+for topLevel in holder_cat_1:
     output_txt.write("\r")
     output_txt.write("\n")
     output_txt.write(topLevel['story_title'])
     output_txt.write("\n")
     output_txt.write("\r")
-    output_txt.write(topLevel['story_URL'])
+    output_txt.write(topLevel['url'])
     output_txt.write("\n")
     output_txt.write("\r")
     output_txt.write(topLevel['story_body'])
@@ -316,7 +479,23 @@ for topLevel in holder:
     output_txt.write("\n")
     output_txt.write("\n")
 
-
+#4a iterates through the stories in category 2
+output_txt.write("#############Category 2 Stories###########")
+for topLevel in holder_cat_2:
+    output_txt.write("\r")
+    output_txt.write("\n")
+    output_txt.write(topLevel['story_title'])
+    output_txt.write("\n")
+    output_txt.write("\r")
+    output_txt.write(topLevel['url'])
+    output_txt.write("\n")
+    output_txt.write("\r")
+    output_txt.write(topLevel['story_body'])
+    output_txt.write("\n")
+    output_txt.write("\r")
+    output_txt.write("\n")
+    output_txt.write("\n")
+    output_txt.write("\n")
 
 txt.close()
 
