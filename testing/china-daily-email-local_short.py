@@ -11,7 +11,7 @@ import csv
     #change "article_text += '\n' + ''.join . . ."
     #to "article_text = '\n' + ''.join . . ."
     #(change += to just =)
-#add the holder2 section at the end
+#add the holder_cat_2 section at the end
 # remove the old holder section
     # delete "holder[headline_text] = article_text"
 
@@ -69,8 +69,7 @@ the diplomat
 #data structure is now a list of dictionaries:
 # holder = [{'url': TheURL, 'story_title': TheTitle, 'story_body': TheBody},{'url': TheURL, 'story_title': TheTitle, 'story_body': TheBody}, {'url': TheURL, 'story_title': TheTitle, 'story_body': TheBody},]
 
-# legacy holder for initial testing
-#holder = []
+
 #this will hold the output of headliner() for category 1 stories
 holder_cat_1 = []
 #this will hold the output of headliner() for category 2 stories
@@ -79,17 +78,14 @@ holder_cat_2 = []
 unmatched_holder = []
 
 
-
 #opens the input doc with the URLs
 txt = open("tester2col.csv")
-#is the contents of the doc
-#inputs = txt.read()
-
 #opens the output doc where the output data will live
-output_txt = open("china-daily-email-local-output2-new.txt", "w")
+output_txt = open("china-daily-email-local-output.txt", "w")
 
 #this builds a set of dictionaries with all of the stories and their contents
 #sorted by the category code
+#once these exist they can be used to write the output file below
 def headliner(url):
 
     #creates dictionary called url_dict out of csv file
@@ -99,7 +95,8 @@ def headliner(url):
 
     # assigns meaningful variable name to the columns in the csv
     # and iterates through them one at a time
-    # looking for a condition match
+    # looking for a condition match for both URL element and category
+    # there is a code block for each URL x the number of categories
     for url, code in url_dict.items():
 
         # if the story is from RFA and the code is 1
@@ -116,7 +113,6 @@ def headliner(url):
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creats the body text
-            #This turns the html text into regular text
             #This finds each paragraph
             article = soup.find("div", {"id" : "storytext"}).findAll('p')
             #for each paragraph
@@ -125,17 +121,14 @@ def headliner(url):
                 #the .encode part fixes unicode bullshit
                 article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-
-
-            #this is the new section for the new holder2
+            #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
-
-            #now that the temp_dict is full, append it to holder1
+            #now that the temp_dict is full, append it to holder_cat_1
             #because it is story category 1
             holder_cat_1.append(temp_dict)
 
@@ -153,7 +146,6 @@ def headliner(url):
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creats the body text
-            #This turns the html text into regular text
             #This finds each paragraph
             article = soup.find("div", {"id" : "storytext"}).findAll('p')
             #for each paragraph
@@ -162,17 +154,14 @@ def headliner(url):
                 #the .encode part fixes unicode bullshit
                 article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-
-
-            #this is the new section for the new holder2
+            #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
-
-            #now that the temp_dict is full, append it to holder2
+            #now that the temp_dict is full, append it to holder_cat_2
             #because it is story category 2
             holder_cat_2.append(temp_dict)
 
@@ -183,15 +172,11 @@ def headliner(url):
             #creates a new BS holder based on the URL
             soup = BeautifulSoup(this_url, 'lxml')
 
-
             #creates the headline section
             headline_text = 'Quartz: '
             headline = soup.find_all('h1')
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-
-
 
             #creats the body text
             #This turns the htlm text into regular text
@@ -203,10 +188,6 @@ def headliner(url):
                 #the .encode part fixes unicode bullshit
                 article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-
-
-
-
             #this is the new section for the new holder
             #temp_dict will hold the info from this entry
             temp_dict = {}
@@ -214,7 +195,6 @@ def headliner(url):
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
-
             #now that the temp_dict is full, append it to holder
             holder_cat_1.append(temp_dict)
 
@@ -224,18 +204,13 @@ def headliner(url):
             #creates a new BS holder based on the URL
             soup = BeautifulSoup(this_url, 'lxml')
 
-
             #creates the headline section
             headline_text = 'Quartz: '
             headline = soup.find_all('h1')
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-
-
-
             #creats the body text
-            #This turns the htlm text into regular text
             #This finds each paragraph
             article = soup.find("div", {"class" : "item-body"}).findAll('p')
             #for each paragraph
@@ -244,18 +219,13 @@ def headliner(url):
                 #the .encode part fixes unicode bullshit
                 article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-
-
-
-
-            #this is the new section for the new holder
+            #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
-
             #now that the temp_dict is full, append it to holder
             holder_cat_2.append(temp_dict)
 
@@ -272,13 +242,8 @@ def headliner(url):
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-
-
-
             #creats the body text
-            #This turns the html text into regular text
             #This finds each paragraph
-
             article = soup.find("div", {"class" : "content"}).findAll('p')
             #for each paragraph
             for element in article:
@@ -286,17 +251,14 @@ def headliner(url):
                 #the .encode part fixes unicode bullshit
                 article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-
-
-            #this is the new section for the new holder2
+            #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
-
-            #now that the temp_dict is full, append it to holder2
+            #now that the temp_dict is full, append it to holder_cat_2
             holder_cat_1.append(temp_dict)
 
         elif "sixthtone" in url and code == "2":
@@ -312,12 +274,8 @@ def headliner(url):
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
 
-
-
             #creats the body text
-            #This turns the html text into regular text
             #This finds each paragraph
-
             article = soup.find("div", {"class" : "content"}).findAll('p')
             #for each paragraph
             for element in article:
@@ -325,17 +283,14 @@ def headliner(url):
                 #the .encode part fixes unicode bullshit
                 article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-
-
-            #this is the new section for the new holder2
+            #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
-
-            #now that the temp_dict is full, append it to holder2
+            #now that the temp_dict is full, append it to holder_cat_2
             holder_cat_2.append(temp_dict)
 
         elif "cpianalysis" in url and code == "1":
@@ -350,14 +305,8 @@ def headliner(url):
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-
-
-
             #creats the body text
-            #This turns the html text into regular text
-            #this line adds the URL to the output text
             #This finds each paragraph
-
             article = soup.find("div", {"class" : "post-content clear"}).find_all('p')
             #for each paragraph
             for element in article:
@@ -365,15 +314,14 @@ def headliner(url):
                 #the .encode part fixes unicode bullshit
                 article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-            #this is the new section for the new holder2
+            #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
-
-            #now that the temp_dict is full, append it to holder2
+            #now that the temp_dict is full, append it to holder_cat_2
             holder_cat_1.append(temp_dict)
 
         elif "cpianalysis" in url and code == "2":
@@ -388,14 +336,8 @@ def headliner(url):
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-
-
-
             #creats the body text
-            #This turns the html text into regular text
-            #this line adds the URL to the output text
             #This finds each paragraph
-
             article = soup.find("div", {"class" : "post-content clear"}).find_all('p')
             #for each paragraph
             for element in article:
@@ -403,15 +345,14 @@ def headliner(url):
                 #the .encode part fixes unicode bullshit
                 article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-            #this is the new section for the new holder2
+            #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
-
-            #now that the temp_dict is full, append it to holder2
+            #now that the temp_dict is full, append it to holder_cat_2
             holder_cat_2.append(temp_dict)
 
         #if the input URL isn't in the list above, this message will be returned
