@@ -64,6 +64,12 @@ def headliner(url):
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
+            #creates the author section
+            author = soup.find_all('')
+            author_text = 'Jerry1'
+            #for element in author:
+                #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
             #creats the body text
             #This finds each paragraph
             article = soup.find("div", {"class" : "body entry-content"}).findAll('p')
@@ -78,6 +84,7 @@ def headliner(url):
             temp_dict = {}
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
+            temp_dict['author'] = author_text
             temp_dict['story_title'] = headline_text
             temp_dict['story_body'] = article_text
             #now that the temp_dict is full, append it to holder_cat_1
@@ -97,6 +104,12 @@ def headliner(url):
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
+            #creates the author section
+            author = soup.find_all('')
+            author_text = 'Jerry2'
+            #for element in author:
+                #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
             #creats the body text
             #This finds each paragraph
             article = soup.find("div", {"class" : "body entry-content"}).findAll('p')
@@ -112,6 +125,7 @@ def headliner(url):
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
+            temp_dict['author'] = author_text
             temp_dict['story_body'] = article_text
             #now that the temp_dict is full, append it to holder_cat_2
             #because it is story category 2
@@ -130,6 +144,12 @@ def headliner(url):
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
+            #creates the author section
+            author = soup.find_all('')
+            author_text = 'Caixin1'
+            #for element in author:
+                #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
             #creats the body text
             #This turns the htlm text into regular text
             #This finds each paragraph
@@ -146,6 +166,7 @@ def headliner(url):
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
+            temp_dict['author'] = author_text
             temp_dict['story_body'] = article_text
             #now that the temp_dict is full, append it to holder
             holder_cat_1.append(temp_dict)
@@ -162,6 +183,12 @@ def headliner(url):
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
+            #creates the author section
+            author = soup.find_all('')
+            author_text = 'Caixin2'
+            #for element in author:
+                #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
             #creats the body text
             #This finds each paragraph
             article = soup.find("div", {"class" : "cons-box"}).findAll('p')
@@ -177,6 +204,7 @@ def headliner(url):
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
+            temp_dict['author'] = author_text
             temp_dict['story_body'] = article_text
             #now that the temp_dict is full, append it to holder
             holder_cat_2.append(temp_dict)
@@ -194,6 +222,12 @@ def headliner(url):
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
+            #creates the author section
+            author = soup.find_all('')
+            author_text = 'Telegraph1'
+            #for element in author:
+                #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
             #creats the body text
             #This finds each paragraph
             article = soup.find("article", {"itemprop" : "articleBody"}).findAll('p')
@@ -209,6 +243,7 @@ def headliner(url):
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
+            temp_dict['author'] = author_text
             temp_dict['story_body'] = article_text
             #now that the temp_dict is full, append it to holder_cat_2
             holder_cat_1.append(temp_dict)
@@ -225,6 +260,12 @@ def headliner(url):
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
+            #creates the author section
+            author = soup.find_all('')
+            author_text = 'Telegraph2'
+            #for element in author:
+                #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
 
             #creats the body text
             #This finds each paragraph
@@ -241,11 +282,12 @@ def headliner(url):
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
+            temp_dict['author'] = author_text
             temp_dict['story_body'] = article_text
             #now that the temp_dict is full, append it to holder_cat_2
             holder_cat_2.append(temp_dict)
 
-        
+
 
         #if the input URL isn't in the list above, this message will be returned
         else:
@@ -274,6 +316,8 @@ output_txt.write("\r")
 for topLevel in holder_cat_1:
     output_txt.write(topLevel['story_title'])
     output_txt.write("\r")
+for topLevel in holder_cat_1:
+    output_txt.write(topLevel['author'])
 
 output_txt.write("\n")
 output_txt.write("\r")
