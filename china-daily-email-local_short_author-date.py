@@ -184,10 +184,11 @@ def headliner(url):
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creates the author section
-            author = soup.find_all('')
-            author_text = 'Caixin2'
-            #for element in author:
-                #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+            author = soup.find_all("div", {"class" : "cons-author-txt"})
+            #initializes the variable
+            author_text = ""
+            for element in author:
+                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creats the body text
             #This finds each paragraph
