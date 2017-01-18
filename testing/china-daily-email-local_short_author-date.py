@@ -66,7 +66,7 @@ def headliner(url):
 
             #creates the author section
             author = soup.find_all('')
-            author_text = 'Jerry1'
+            author_text = 'By Jerome Cohen'
             #for element in author:
                 #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
@@ -106,7 +106,7 @@ def headliner(url):
 
             #creates the author section
             author = soup.find_all('')
-            author_text = 'Jerry2'
+            author_text = 'By Jerome Cohen'
             #for element in author:
                 #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
@@ -145,10 +145,11 @@ def headliner(url):
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creates the author section
-            author = soup.find_all('')
-            author_text = 'Caixin1'
-            #for element in author:
-                #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+            author = soup.find_all("div", {"class" : "cons-author-txt"})
+            #initializes the variable
+            author_text = ""
+            for element in author:
+                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creats the body text
             #This turns the htlm text into regular text
@@ -184,10 +185,12 @@ def headliner(url):
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creates the author section
-            author = soup.find_all('')
-            author_text = 'Caixin2'
-            #for element in author:
-                #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+            author = soup.find_all("div", {"class" : "cons-author-txt"})
+            #initializes the variable
+            author_text = ""
+            #isolates the content of the variable and strips out the html
+            for element in author:
+                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creats the body text
             #This finds each paragraph
@@ -223,10 +226,12 @@ def headliner(url):
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creates the author section
-            author = soup.find_all('')
-            author_text = 'Telegraph1'
-            #for element in author:
-                #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+            author = soup.find_all("a", {"href" : "/authors/neil-connor/"})
+            #initializes the variable
+            author_text = ""
+            #isolates the content of the variable and strips out the html
+            for element in author:
+                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creats the body text
             #This finds each paragraph
@@ -316,8 +321,10 @@ output_txt.write("\r")
 for topLevel in holder_cat_1:
     output_txt.write(topLevel['story_title'])
     output_txt.write("\r")
-for topLevel in holder_cat_1:
     output_txt.write(topLevel['author'])
+    output_txt.write("\n")
+
+
 
 output_txt.write("\n")
 output_txt.write("\r")
@@ -328,6 +335,8 @@ output_txt.write("\r")
 for topLevel in holder_cat_2:
     output_txt.write(topLevel['story_title'])
     output_txt.write("\r")
+    output_txt.write(topLevel['author'])
+    output_txt.write("\n")
 
 #3creates space between list of headlines and the stories
 
