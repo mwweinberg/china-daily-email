@@ -199,7 +199,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -235,7 +235,7 @@ def headliner(url):
 
             #creats the body text
             #This finds each paragraph
-            article = soup.find("article", {"itemprop" : "articleBody"}).findAll('p')
+            article = soup.find("div", {"class" : "component-content"}).findAll('p')
             #for each paragraph
             for element in article:
                 #add a line break and then the text part of the paragraph
@@ -266,10 +266,12 @@ def headliner(url):
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creates the author section
-            author = soup.find_all('')
-            author_text = 'Telegraph2'
-            #for element in author:
-                #author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+            author = soup.find_all("a", {"href" : "/authors/neil-connor/"})
+            #initializes the variable
+            author_text = ""
+            #isolates the content of the variable and strips out the html
+            for element in author:
+                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
 
             #creats the body text
