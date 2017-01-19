@@ -64,6 +64,15 @@ def headliner(url):
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
+            #creates the date section
+            #initializes the variable
+            date_text = ""
+            #finds the relevant section
+            date = soup.find_all("div", {"class" : "cons-author-txt"})
+            #isolates the content of the variable and strips out the html
+            for element in date:
+                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
             #creates the author section
             author = soup.find_all('')
             author_text = 'By Jerome Cohen'
@@ -84,11 +93,11 @@ def headliner(url):
             temp_dict = {}
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
-            temp_dict['author'] = author_text
             temp_dict['story_title'] = headline_text
+            temp_dict['author'] = author_text
+            temp_dict['date'] = date_text
             temp_dict['story_body'] = article_text
-            #now that the temp_dict is full, append it to holder_cat_1
-            #because it is story category 1
+            #now that the temp_dict is full, append it to holder
             holder_cat_1.append(temp_dict)
 
 
@@ -104,6 +113,15 @@ def headliner(url):
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
+            #creates the date section
+            #initializes the variable
+            date_text = ""
+            #finds the relevant section
+            date = soup.find_all("div", {"class" : "cons-author-txt"})
+            #isolates the content of the variable and strips out the html
+            for element in date:
+                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
             #creates the author section
             author = soup.find_all('')
             author_text = 'By Jerome Cohen'
@@ -126,9 +144,9 @@ def headliner(url):
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['author'] = author_text
+            temp_dict['date'] = date_text
             temp_dict['story_body'] = article_text
-            #now that the temp_dict is full, append it to holder_cat_2
-            #because it is story category 2
+            #now that the temp_dict is full, append it to holder
             holder_cat_2.append(temp_dict)
 
 
@@ -143,6 +161,15 @@ def headliner(url):
             headline = soup.find_all('title')
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+            #creates the date section
+            #initializes the variable
+            date_text = ""
+            #finds the relevant section
+            date = soup.find_all("div", {"class" : "cons-author-txt"})
+            #isolates the content of the variable and strips out the html
+            for element in date:
+                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creates the author section
             author = soup.find_all("div", {"class" : "cons-author-txt"})
@@ -161,13 +188,14 @@ def headliner(url):
                 #the .encode part fixes unicode bullshit
                 article_text = '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
-            #this is the new section for the new holder
+            #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
             temp_dict = {}
             #this will load the variables into the temp_dict
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['author'] = author_text
+            temp_dict['date'] = date_text
             temp_dict['story_body'] = article_text
             #now that the temp_dict is full, append it to holder
             holder_cat_1.append(temp_dict)
@@ -184,10 +212,20 @@ def headliner(url):
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
+            #creates the date section
+            #initializes the variable
+            date_text = ""
+            #finds the relevant section
+            date = soup.find_all("div", {"class" : "cons-author-txt"})
+            #isolates the content of the variable and strips out the html
+            for element in date:
+                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
             #creates the author section
-            author = soup.find_all("div", {"class" : "cons-author-txt"})
             #initializes the variable
             author_text = ""
+            #finds the relevant section
+            author = soup.find_all("div", {"class" : "cons-author-txt"})
             #isolates the content of the variable and strips out the html
             for element in author:
                     author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
@@ -208,6 +246,7 @@ def headliner(url):
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['author'] = author_text
+            temp_dict['date'] = date_text
             temp_dict['story_body'] = article_text
             #now that the temp_dict is full, append it to holder
             holder_cat_2.append(temp_dict)
@@ -224,6 +263,15 @@ def headliner(url):
             headline = soup.find_all('title')
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+            #creates the date section
+            #initializes the variable
+            date_text = ""
+            #finds the relevant section
+            date = soup.find_all("div", {"class" : "cons-author-txt"})
+            #isolates the content of the variable and strips out the html
+            for element in date:
+                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creates the author section
             author = soup.find_all("a", {"href" : "/authors/neil-connor/"})
@@ -249,8 +297,9 @@ def headliner(url):
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['author'] = author_text
+            temp_dict['date'] = date_text
             temp_dict['story_body'] = article_text
-            #now that the temp_dict is full, append it to holder_cat_2
+            #now that the temp_dict is full, append it to holder
             holder_cat_1.append(temp_dict)
 
         elif "telegraph" in url and code == "2":
@@ -264,6 +313,15 @@ def headliner(url):
             headline = soup.find_all('title')
             for element in headline:
                     headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+
+            #creates the date section
+            #initializes the variable
+            date_text = ""
+            #finds the relevant section
+            date = soup.find_all("div", {"class" : "cons-author-txt"})
+            #isolates the content of the variable and strips out the html
+            for element in date:
+                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
 
             #creates the author section
             author = soup.find_all("a", {"href" : "/authors/neil-connor/"})
@@ -290,8 +348,9 @@ def headliner(url):
             temp_dict['url'] = url
             temp_dict['story_title'] = headline_text
             temp_dict['author'] = author_text
+            temp_dict['date'] = date_text
             temp_dict['story_body'] = article_text
-            #now that the temp_dict is full, append it to holder_cat_2
+            #now that the temp_dict is full, append it to holder
             holder_cat_2.append(temp_dict)
 
 
@@ -323,6 +382,8 @@ output_txt.write("\r")
 for topLevel in holder_cat_1:
     output_txt.write(topLevel['story_title'])
     output_txt.write("\r")
+    output_txt.write(topLevel['date'])
+    output_txt.write("\r")
     output_txt.write(topLevel['author'])
     output_txt.write("\n")
 
@@ -336,6 +397,8 @@ output_txt.write("\n")
 output_txt.write("\r")
 for topLevel in holder_cat_2:
     output_txt.write(topLevel['story_title'])
+    output_txt.write("\r")
+    output_txt.write(topLevel['date'])
     output_txt.write("\r")
     output_txt.write(topLevel['author'])
     output_txt.write("\n")
