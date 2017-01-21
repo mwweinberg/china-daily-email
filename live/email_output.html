@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <!-- Facebook sharing information tags -->
+        <meta property="og:title" content="*|MC:SUBJECT|*" />
+
+        <title>*|MC:SUBJECT|*</title>
+		<style type="text/css">
+			/* Client-specific Styles */
+			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" button. */
+			body{width:100% !important;} .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
+			body{-webkit-text-size-adjust:none;} /* Prevent Webkit platforms from changing default text sizes. */
+			/* Reset Styles */
+			body{margin:0; padding:0;}
+			img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
+			table td{border-collapse:collapse;}
+			#backgroundTable{height:100% !important; margin:0; padding:0; width:100% !important;}
+			/* Template Styles */
+			/* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: COMMON PAGE ELEMENTS /\/\/\/\/\/\/\/\/\/\ */
+			/**
+			* @tab Page
+			* @section background color
+			* @tip Set the background color for your email. You may want to choose one that matches your company's branding.
+			* @theme page
+			*/
+			body, #backgroundTable{
+				/*@editable*/ background-color:#FAFAFA;
+			}
+			/**
+			* @tab Page
+			* @section email border
+			* @tip Set the border for your email.
+			*/
+			#templateContainer{
+				/*@editable*/ border: 1px solid #DDDDDD;
+			}
+			/**
+			* @tab Page
+			* @section heading 1
+			* @tip Set the styling for all first-level headings in your emails. These should be the largest of your headings.
+			* @style heading 1
+			*/
+			h1, .h1{
+				/*@editable*/ color:#202020;
+				display:block;
+				/*@editable*/ font-family:Arial;
+				/*@editable*/ font-size:34px;
+				/*@editable*/ font-weight:bold;
+				/*@editable*/ line-height:100%;
+				margin-top:0;
+				margin-right:0;
+				margin-bottom:10px;
+				margin-left:0;
+				/*@editable*/ text-align:left;
+			}
+			/**
+			* @tab Page
+			* @section heading 2
+			* @tip Set the styling for all second-level headings in your emails.
+			* @style heading 2
+			*/
+			h2, .h2{
+				/*@editable*/ color:#202020;
+				display:block;
+				/*@editable*/ font-family:Arial;
+				/*@editable*/ font-size:30px;
+				/*@editable*/ font-weight:bold;
+				/*@editable*/ line-height:100%;
+				margin-top:0;
+				margin-right:0;
+				margin-bottom:10px;
+				margin-left:0;
+				/*@editable*/ text-align:left;
+			}
+			/**
+			* @tab Page
+			* @section heading 3
+			* @tip Set the styling for all third-level headings in your emails.
+			* @style heading 3
+			*/
+			h3, .h3{
+				/*@editable*/ color:#202020;
+				display:block;
+				/*@editable*/ font-family:Arial;
+				/*@editable*/ font-size:26px;
+				/*@editable*/ font-weight:bold;
+				/*@editable*/ line-height:100%;
+				margin-top:0;
+				margin-right:0;
+				margin-bottom:10px;
+				margin-left:0;
+				/*@editable*/ text-align:left;
+			}
+			/**
+			* @tab Page
+			* @section heading 4
+			* @tip Set the styling for all fourth-level headings in your emails. These should be the smallest of your headings.
+			* @style heading 4
+			*/
+			h4, .h4{
+				/*@editable*/ color:#202020;
+				display:block;
+				/*@editable*/ font-family:Arial;
+				/*@editable*/ font-size:22px;
+				/*@editable*/ font-weight:bold;
+				/*@editable*/ line-height:100%;
+				margin-top:0;
+				margin-right:0;
+				margin-bottom:10px;
+				margin-left:0;
+				/*@editable*/ text-align:left;
+			}
+			/* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: PREHEADER /\/\/\/\/\/\/\/\/\/\ */
+			/**
+			* @tab Header
+			* @section preheader style
+			* @tip Set the background color for your email's preheader area.
+			* @theme page
+			*/
+			#templatePreheader{
+				/*@editable*/ background-color:#FAFAFA;
+			}
+			/**
+			* @tab Header
+			* @section preheader text
+			* @tip Set the styling for your email's preheader text. Choose a size and color that is easy to read.
+			*/
+			.preheaderContent div{
+				/*@editable*/ color:#505050;
+				/*@editable*/ font-family:Arial;
+				/*@editable*/ font-size:10px;
+				/*@editable*/ line-height:100%;
+				/*@editable*/ text-align:left;
+			}
+			/**
+			* @tab Header
+			* @section preheader link
+			* @tip Set the styling for your email's preheader links. Choose a color that helps them stand out from your text.
+			*/
+			.preheaderContent div a:link, .preheaderContent div a:visited, /* Yahoo! Mail Override */ .preheaderContent div a .yshortcuts /* Yahoo! Mail Override */{
+				/*@editable*/ color:#336699;
+				/*@editable*/ font-weight:normal;
+				/*@editable*/ text-decoration:underline;
+			}
+			/* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: HEADER /\/\/\/\/\/\/\/\/\/\ */
+			/**
+			* @tab Header
+			* @section header style
+			* @tip Set the background color and border for your email's header area.
+			* @theme header
+			*/
+			#templateHeader{
+				/*@editable*/ background-color:#FFFFFF;
+				/*@editable*/ border-bottom:0;
+			}
+			/**
+			* @tab Header
+			* @section header text
+			* @tip Set the styling for your email's header text. Choose a size and color that is easy to read.
+			*/
+			.headerContent{
+				/*@editable*/ color:#202020;
+				/*@editable*/ font-family:Arial;
+				/*@editable*/ font-size:34px;
+				/*@editable*/ font-weight:bold;
+				/*@editable*/ line-height:100%;
+				/*@editable*/ padding:0;
+				/*@editable*/ text-align:center;
+				/*@editable*/ vertical-align:middle;
+			}
+			/**
+			* @tab Header
+			* @section header link
+			* @tip Set the styling for your email's header links. Choose a color that helps them stand out from your text.
+			*/
+			.headerContent a:link, .headerContent a:visited, /* Yahoo! Mail Override */ .headerContent a .yshortcuts /* Yahoo! Mail Override */{
+				/*@editable*/ color:#336699;
+				/*@editable*/ font-weight:normal;
+				/*@editable*/ text-decoration:underline;
+			}
+			#headerImage{
+				height:auto;
+				max-width:600px !important;
+			}
+			/* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: MAIN BODY /\/\/\/\/\/\/\/\/\/\ */
+			/**
+			* @tab Body
+			* @section body style
+			* @tip Set the background color for your email's body area.
+			*/
+			#templateContainer, .bodyContent{
+				/*@editable*/ background-color:#FFFFFF;
+			}
+			/**
+			* @tab Body
+			* @section body text
+			* @tip Set the styling for your email's main content text. Choose a size and color that is easy to read.
+			* @theme main
+			*/
+			.bodyContent div{
+				/*@editable*/ color:#505050;
+				/*@editable*/ font-family:Arial;
+				/*@editable*/ font-size:14px;
+				/*@editable*/ line-height:150%;
+				/*@editable*/ text-align:left;
+			}
+			/**
+			* @tab Body
+			* @section body link
+			* @tip Set the styling for your email's main content links. Choose a color that helps them stand out from your text.
+			*/
+			.bodyContent div a:link, .bodyContent div a:visited, /* Yahoo! Mail Override */ .bodyContent div a .yshortcuts /* Yahoo! Mail Override */{
+				/*@editable*/ color:#336699;
+				/*@editable*/ font-weight:normal;
+				/*@editable*/ text-decoration:underline;
+			}
+			.bodyContent img{
+				display:inline;
+				height:auto;
+			}
+			/* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: FOOTER /\/\/\/\/\/\/\/\/\/\ */
+			/**
+			* @tab Footer
+			* @section footer style
+			* @tip Set the background color and top border for your email's footer area.
+			* @theme footer
+			*/
+			#templateFooter{
+				/*@editable*/ background-color:#FFFFFF;
+				/*@editable*/ border-top:0;
+			}
+			/**
+			* @tab Footer
+			* @section footer text
+			* @tip Set the styling for your email's footer text. Choose a size and color that is easy to read.
+			* @theme footer
+			*/
+			.footerContent div{
+				/*@editable*/ color:#707070;
+				/*@editable*/ font-family:Arial;
+				/*@editable*/ font-size:12px;
+				/*@editable*/ line-height:125%;
+				/*@editable*/ text-align:left;
+			}
+			/**
+			* @tab Footer
+			* @section footer link
+			* @tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.
+			*/
+			.footerContent div a:link, .footerContent div a:visited, /* Yahoo! Mail Override */ .footerContent div a .yshortcuts /* Yahoo! Mail Override */{
+				/*@editable*/ color:#336699;
+				/*@editable*/ font-weight:normal;
+				/*@editable*/ text-decoration:underline;
+			}
+			.footerContent img{
+				display:inline;
+			}
+			/**
+			* @tab Footer
+			* @section social bar style
+			* @tip Set the background color and border for your email's footer social bar.
+			* @theme footer
+			*/
+			#social{
+				/*@editable*/ background-color:#FAFAFA;
+				/*@editable*/ border:0;
+			}
+			/**
+			* @tab Footer
+			* @section social bar style
+			* @tip Set the background color and border for your email's footer social bar.
+			*/
+			#social div{
+				/*@editable*/ text-align:center;
+			}
+			/**
+			* @tab Footer
+			* @section utility bar style
+			* @tip Set the background color and border for your email's footer utility bar.
+			* @theme footer
+			*/
+			#utility{
+				/*@editable*/ background-color:#FFFFFF;
+				/*@editable*/ border:0;
+			}
+			/**
+			* @tab Footer
+			* @section utility bar style
+			* @tip Set the background color and border for your email's footer utility bar.
+			*/
+			#utility div{
+				/*@editable*/ text-align:center;
+			}
+			#monkeyRewards img{
+				max-width:190px;
+			}
+		</style>
+	</head>
+    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+    	<center>
+        	<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="backgroundTable">
+            	<tr>
+                	<td align="center" valign="top">
+                        <!-- // Begin Template Preheader \\ -->
+                        <table border="0" cellpadding="10" cellspacing="0" width="600" id="templatePreheader">
+                            <tr>
+                                <td valign="top" class="preheaderContent">
+
+                                	<!-- // Begin Module: Standard Preheader \ -->
+                                    <table border="0" cellpadding="10" cellspacing="0" width="100%">
+                                    	<tr>
+                                        	<td valign="top">
+                                            	<div mc:edit="std_preheader_content">
+                                                	 Today's China human rights articles
+                                                </div>
+                                            </td>
+                                            <!-- *|IFNOT:ARCHIVE_PAGE|* -->
+											<td valign="top" width="190">
+                                            	<div mc:edit="std_preheader_links">
+                                                	Is this email not displaying correctly?<br /><a href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.
+                                                </div>
+                                            </td>
+											<!-- *|END:IF|* -->
+                                        </tr>
+                                    </table>
+                                	<!-- // End Module: Standard Preheader \ -->
+
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- // End Template Preheader \\ -->
+                    	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateContainer">
+                        	<tr>
+                            	<td align="center" valign="top">
+                                    <!-- // Begin Template Header \\ -->
+                                	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateHeader">
+                                        <tr>
+                                            <td class="headerContent">
+
+                                            	<!-- // Begin Module: Standard Header Image \\
+                                            	<img src="http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/placeholder_600.gif" style="max-width:600px;" id="headerImage campaign-icon" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
+                                            	 // End Module: Standard Header Image \\ -->
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- // End Template Header \\ -->
+                                </td>
+                            </tr>
+                        	<tr>
+                            	<td align="center" valign="top">
+                                    <!-- // Begin Template Body \\ -->
+                                	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateBody">
+                                    	<tr>
+                                            <td valign="top" class="bodyContent">
+
+                                                <!-- // Begin Module: Standard Content \\ -->
+                                                <table border="0" cellpadding="20" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td valign="top">
+                                                            <div mc:edit="std_content00">
+
+                                                                <!-- ***************-->
+                                                                <!-- ***************-->
+                                                                <!-- ***************-->
+                                                                <!-- Start Content-->
+                                                                <!-- ***************-->
+                                                                <!-- ***************-->
+                                                                <!-- ***************-->
+                                                                
+<h1 class="h1" id = "top"></h1><h1 class="h1">General Human Rights Issues</h1><br><h3 class="h3"><a href="#2">Quartz: Twitter’s China head has departed after only eight months at the company</a></h3><br><h3 class="h3"><a href="#5">Asia Times: Down but not out: Phnom Penh’s housing market</a></h3><br><br><br><br><h1 class="h1">Tibetan Issues</h1><br><h3 class="h3"><a href="#1">Associated Press: World jittery about Trump's 'America first' inaugural speech</a></h3><br><br><br><br><h1 class="h1">Xinjiang Issues</h1><br><h3 class="h3"><a href="#4">China Policy Institute: U.S. Government Commission Strategic Policy Analysis</a></h3><br><br><br><br><h1 class="h1">Other Ethnic Minority Issues</h1><br><h3 class="h3"><a href="#3">ChannelNewsAsia: Smoking out the source of China's smog</a></h3><br><br><br>************************<br><br><h1 class="h1">General Human Rights Issues</h1><br><br><h3 class="h3" id="2">Quartz: Twitter’s China head has departed after only eight months at the company</h3><br /><a href="http://qz.com/876883/kathy-chen-twitters-china-head-has-departed-after-only-eight-months-at-the-company/">http://qz.com/876883/kathy-chen-twitters-china-head-has-departed-after-only-eight-months-at-the-company/</a><br /><br /><br /><br /><p>That was fast.</p><p>Kathy Chen, Twitter’s managing director of Greater China, has left the company only eight months after joining.</p><p>Chen announced the news on Twitter, naturally, via a tweetstorm on Dec. 31—a move most companies employ when they want to bury bad news.</p><p>1/12 Hi everyone, I have some updates to share with you about Twitter's Greater China business.</p><p>— Kathy Chen (@kathychen2016) December 31, 2016</p><p>2/12 As you know, our focus in Great China is to help Chinese businesses to reach a global audience on our live communications platform.</p><p>— Kathy Chen (@kathychen2016) December 31, 2016</p><p>3/12 Great China is one of our fastest growing revenue markets in Asia Pacific for Twitter today and we remain committed to this market.</p><p>— Kathy Chen (@kathychen2016) December 31, 2016</p><p>4/12 We have grown our Greater China advertiser base nearly 400% over the past 2 years and we thank all of them for their support.</p><p>— Kathy Chen (@kathychen2016) December 31, 2016</p><p>5/12 We have fully transitioned our Chinese ad sales & support activities to our APAC HQ. All Chinese ad queries go to Alan Lan (@bluealan).</p><p>— Kathy Chen (@kathychen2016) December 31, 2016</p><p>6/12 At this time, our HK office will stay open to maintain our Greater China presence & for business opportunities with Chinese companies.</p><p>— Kathy Chen (@kathychen2016) December 31, 2016</p><p>7/12 Now that the Twitter APAC team is working directly with Chinese advertisers, this is the right time for me to leave the company.</p><p>— Kathy Chen (@kathychen2016) December 31, 2016</p><p>8/12 I'm proud to have helped build a successful Great China business for Twitter and thank @shaileshrao & @alizaknox for the opportunity.</p><p>— Kathy Chen (@kathychen2016) December 31, 2016</p><p>9/12 Working at Twitter has opened my mind, my passion is to connect people to the world through cross-cultural communications & businesses.</p><p>— Kathy Chen (@kathychen2016) December 31, 2016</p><p>10/12 I will take some time off to recharge, study about different cultures and then pursue more international business opportunities.</p><p>— Kathy Chen (@kathychen2016) December 31, 2016</p><p>11/12 I wish Twitter all the best as it is a fantastic platform for everyone to express themselves & to see what is happening in the world.</p><p>— Kathy Chen (@kathychen2016) December 31, 2016</p><p>12/12 Thank you again for all of your support! I wish you a Happy & Prosperous New Year in 2017! #LoveTwitter</p><p>— Kathy Chen (@kathychen2016) December 31, 2016</p><p>Chen’s departure comes amid a wave of high-ranking staff exits at Twitter. But hers is remarkable in that her appointment, to begin with, marked one of the more bizarre developments in China’s tech industry over the last year.</p><p>Twitter, like Facebook, has been inaccessible in China for years thanks to the Great Firewall, which blocks consumer access to its site and related services. Unlike Facebook, however, Twitter has been relatively vocal in expressing its lack of interest in getting unblocked in China. When then-CEO Dick Costolo visited China in 2014, the company clearly stated it had no plans to push for a ban lift (link in Chinese) that would let it launch its consumer-facing service there. The company’s position didn’t change in 2015 when it announced it would open an office in Hong Kong to sell ad space to Chinese advertisers.</p><p>Given the company’s stated lack of interest in an official China launch, and the mundane nature of ad sales, the announcement of Chen’s hiring in April by Twitter directly to the press was remarkably high profile. More notably, almost as soon as the former Microsoft employee was hired, her background in China’s People’s Liberation Army came to light. This quickly drew suspicion, from Twitter’s community of overseas Chinese activists and firewall-jumping programmers. Chinese political cartoonist Badiucao called her appointment “a murderof free speech (sic).”</p><p>【Death of Twitter】Deep worry about twitter hiring @kathychen2016 as China MD. Itz a murder of freespeech. @jack pic.twitter.com/UEuAQqcPlG</p><p>— 巴丢草  Badiucao (@badiucao) April 16, 2016</p><p>Moreover, during her tenure at the company, Chen filled her feed with retweets from People’s Daily and Xinhua—two of China’s state media outlets. Her taste tended to lean towards innocuous clickbait rather than blatant pro-party propaganda. But this likely did little to allay fears, however irrational, that Chinese users might be censored or monitored.</p><p>Chinese  #kungfu 😎 https://t.co/csPFNzjMQf</p><p>— Kathy Chen (@kathychen2016) November 28, 2016</p><p>Ouch https://t.co/CqqnWPpcQa</p><p>— Kathy Chen (@kathychen2016) November 4, 2016</p><p>A few weeks ago, Twitter announced that the Hong Kong office Chen oversaw would be shuttered, with some of the staff relocating to Singapore. At the time, Twitter said she would remain with the company.</p><p>Her exit has been welcomed by Chinese activists on Twitter.</p><p>Twitter China ex-MD Kathy Chen @kathychen2016 blocked me shortly after I Tweeted about her resignation.  Yet she brags about boosting ads 😊 https://t.co/165wegp89R</p><p>— Rose Tang (唐路） (@rosetangy) January 2, 2017</p><p>Kathy: the 1st thing you need to learn is press freedom, in every culure. Those who work for dictatorships won't go far. #nyresolution https://t.co/XquUwWm1Em</p><p>— Rose Tang (唐路） (@rosetangy) January 1, 2017</p><br /><a href="#top">Back to top</a><br /><br /><br><h3 class="h3" id="5">Asia Times: Down but not out: Phnom Penh’s housing market</h3><br /><a href="http://www.atimes.com/article/not-phnom-penhs-housing-market/">http://www.atimes.com/article/not-phnom-penhs-housing-market/</a><br /><br />January 21, 2017 8:07 PM (UTC+8)<br /><br /><p>Many Cambodia observers equate the dramatic increase in apartment prices in Phnom Penh to a housing bubble. That term may not apply, however, since most of the houses and condos sold in the city are not purchased with loans.</p><p>The assumption behind “bubble” is that prices are inflated, and that if you buy a condo, you’re unlikely to be able to sell it for the same, or a higher price, later. People also see a recent decrease in house prices as a sign that prices will plummet at some point in the near future. But while real estate prices may drop further in the near future, the largest purchasers of these condos are Chinese and the fundamentals driving Chinese to buy will remain in place, rewarding long term-investors.</p><p>The recent flood of condos to the market, followed by a spike in demand and prices, may seem like the prelude to a bubble, but it is important to keep in mind that foreigners have only been permitted to purchase condos in Cambodia since 2010, so many of the initial purchases were the result of pent-up demand. With this initial demand fulfilled, the slowdown in condo purchases may just be a return to sustainable levels of demand.</p><p>Read: Cambodian demonstrators, officials clash at land rights protest</p><p>Since the beginning of 2016, prices for new units have dropped approximately 35%. Additionally, only 13% of completed condo units were sold, compared to 37% for 2015. Some experts attribute the slow demand to oversupply, with 3,621 new units expected to be completed and released on to the market this year. But there are several issues to be considered here. First off, scheduled completion dates frequently are not met, and the number of expected new units may not materialize until much further in the future, giving the market time to accommodate them. Investors are somewhat wary of purchasing units which are still under construction because they worry that the units will not be completed on time. Another issue contributing to sluggish demand is fear of political turmoil occurring during the upcoming 2017 commune elections and 2018 national elections.</p><p>Ups and downs in real estate markets around the world are simply par for the course. If the Phnom Penh housing market should tumble, it wouldn’t be the first time. There was a 40% housing drop between 2009 and 2010, and it wasn’t until 2014 that the market recovered. Once that happened, it gained more than it lost, once again rewarding investors with a longer investment horizon.</p><p>One indicator which does suggest that the current market is in a bubble is that house prices have increased at a rate much higher than the increase in rents. This means that the return on investment has dropped. Rents tend to be an indicator of average income and are generally not subject to the same types of balloons and bubbles as housing prices. They have to remain within a reasonable range or citizens cannot pay them. Since the rents people in Cambodia can afford are not in line with the price of the houses, this suggests that house prices have outpaced the general economy.</p><p>Irrespective of current and near-term factors, however, many experts are suggesting Phnom Penh condos are a good investment for those willing to take a long-term view. Approaching the real estate market the same way some investors see stock prices, if the fundamentals of the underlying company are good, the stock is a good investment, regardless of short-term fluctuations.</p><p>Taking a longer view of Cambodian property investment, one could look at the country’s underlying fundamentals — which include a robust GDP growth rate of between 6% and 7%, as well as the fact that 70% of the country’s population is under the age of 34. This means that Cambodia, unlike most Western or developed countries, has a large supply of young talent and labor available to work and innovate, helping the country develop.</p><p>Cambodia, in general, should be a good investment for the long term, and as more Khmers move up and out of poverty and more and more businesses and jobs become concentrated in the cities, eventually there will be local demand for condos. Meanwhile, the fundamentals that drive Chinese demand for condos will remain in place.</p><p>Antonio Graceffo (@brooklynmonk) is the author of seven books about China and Southeast Asia. He works as a lecturer at Shanghai University and holds a PhD from Shanghai University of Sport, as well as a China-MBA from Shanghai Jiaotong University.</p><br /><a href="#top">Back to top</a><br /><br /><br>------<h1 class="h1">Tibetan Issues</h1><br><br><h3 class="h3" id="1">Associated Press: World jittery about Trump's 'America first' inaugural speech</h3><br /><a href="https://apnews.com/97f8cc85d82643b695062f7c25b19e39/World-jittery-about-Trump's-'America-first'-inaugural-speech">https://apnews.com/97f8cc85d82643b695062f7c25b19e39/World-jittery-about-Trump's-'America-first'-inaugural-speech</a><br />By The Associated Press
+
+
+Today<br /><br /><br /><p>President Donald Trump's inaugural speech promised "America first" policy led by a forceful executive, in contrast to the coalition building and international conferences which have featured strongly in past administrations.</p><p>The billionaire businessman and reality television star — the first president who had never held political office or high military rank — promised to stir a "new national pride" and protect America from the "ravages" of countries he says have stolen U.S. jobs.</p><p>"This American carnage stops right here," Trump declared. In a warning to the world, he said, "From this day forward, a new vision will govern our land. From this moment on, it's going to be America first."</p><p>A look at some reactions from around the world:</p><p>___</p><p>AFGHANS DISAPPOINTED BUT HOPEFUL</p><p>Like many in the Afghan capital of Kabul, restaurant owner Mohammad Nahim watched the presidential inauguration ceremonies but was disappointed to not hear any mention of Afghanistan.</p><p>"Trump did not mention a word about Afghanistan in his speech and the salaries of the Afghan army and police are paid by the U.S.," he said.  He added that if the U.S. stops helping Afghanistan, "our country will again become a sanctuary to terrorists. I hope Trump will not forget Afghanistan."</p><p>Mohammed Kasim Zazi, a shopkeeper whose home is in eastern Afghanistan's Khost province, where the feared Haqqani network is prominent, said he expected Trump to stay focused on Afghanistan.</p><p>"Trump said he will finish the terrorists in the world and that has to mean that Afghanistan will remain in the sights of the U.S." said Zazi.</p><p>Chief Executive Abdullah Abdullah said he was encouraged by Trump's speech to soldiers in Bagram. "There he announced his support to the troops and the continuation of support for their troops here and strengthening their troops, which is a good and elegant step and I am sure that our cooperation in other areas will continue as well."</p><p>___</p><p>SPEECH RESONATES IN MEXICO</p><p>Perhaps no country was watching the speech more closely than Mexico. Trump has made disparaging remarks about immigrants who come to the United States illegally and sought to pressure companies not to set up shop in Mexico by threatening a border tariff on goods manufactured there and exported to the United States.</p><p>So Trump's talk of "protect(ing) our borders," ''America first" and "buy American and hire American" had particular resonance in America's southern neighbor.</p><p>Ricardo Anaya Cortes, president of the conservative opposition National Action Party, called for "the unity of all Mexicans, unity in the face of this protectionist, demagogic and populist speech we just heard. Unity against that useless wall, against deportations, against the blockade of investment."</p><p>"The challenge is enormous. ... We demand the federal government leave aside tepidity, that it tackle with absolute firmness and dignity the new relationship with the United States," Anaya said.</p><p>The United States is by far Mexico's largest commercial partner, buying some 80 percent of its $532 billion in exports in 2015. Mexico is the second-largest market for U.S. exports.</p><p>"At least the word 'Mexico' was not heard in the speech. Nevertheless one can expect the United States to launch a hyper-protectionist project," said Ilan Semo Groman, a researcher at Iberoamericana University.</p><p>If Trump truly moves to block or drive away U.S. investment in Mexico, Semo said Mexico should focus its commercial efforts on other countries.</p><p>"There are very clear possibilities," Semo said.</p><p>Mexican President Enrique Pena Nieto sent three tweets after Trump's inaugural speech Friday:</p><p>— "I congratulate @realDonaldTrump on his inauguration. We will work to strengthen our relationship with shared responsibility."</p><p>— "We will establish a respectful dialogue with the government of President @realDonaldTrump, to Mexico's benefit."</p><p>— "Sovereignty, national interest and the protection of Mexicans will guide the relationship with the new government of the United States."</p><p>___</p><p>PAKISTAN WORRIES ABOUT MUSLIM COMMENTS</p><p>A group of retired government officials gathered after morning prayers for a walk in a sprawling park in the heart of the federal capital of Islamabad and the topic of their conversation was President Trump's inaugural speech.</p><p>They expressed concern that Trump would target the Islamic world, particularly Pakistan, because of his campaign rhetoric about Muslims as well as his inaugural speech in which he promised to eradicate Islamic terrorism worldwide. Pakistan has often been accused of harboring militant insurgents and declared terrorist groups that have targeted neighboring India, against whom Pakistan has fought three wars, as well as Afghanistan. Pakistan denies the charges.</p><p>"Likely there is more trouble in store for the Islamic world and our country will take the most brunt of the harsh treatment from President Trump administration," said Mohammad Afzal.</p><p>His sentiments were echoed by Shafiq Khan, who said "the one main thing that the new president mentioned about the world outside America is to tackle Islamic radicalism and that should be the matter of concern for all of us."</p><p>Amanaullah, a school teacher in Islamabad, feared Trump's reference to eliminating radical Islamic terrorism. "I think under this name he wants to malign and eliminate Islam," he said.</p><p>Umair Khan, an engineer, said of Trump: "Let him taste the burden of government and get settled, I am sure he will calm."</p><p>___</p><p>CONCERN IN TOKYO</p><p>Some Tokyo residents are worried that Trump's "America first" policy will usher in an era of populism and protectionism at the expense of the rest of the world.</p><p>Tadashi Gomibuchi, who works in the manufacturing industry, recorded Trump's inauguration speech overnight as he was keen to hear what the new president had to say.</p><p>"Trump is trying to make big changes to the way things are. Changes are good sometimes, but when America, the most powerful, loses stability ... it's a grave concern," he said. "If you take his words literally, it may destabilize the world going forward and I'm really worried. I hope things will lead to a soft landing."</p><p>Retiree Kuninobu Inoue, who lived in the U.S. during the 1990s, is concerned about trade frictions between Japan and the U.S, citing Trump's decision to withdraw from the 12-nation Trans Pacific Partnership.</p><p>"Japan-U.S. relations are not just about security. Our good relations rely so much on trade," he said.</p><p>Protectionist policies such as the withdrawal from TPP and renegotiation of NAFTA will have a negative impact on the global economy including Japan's, said Akio Mimura, head of the Japan Chamber of Commerce and Industry.</p><p>"These policies only enhance protectionist and populist movement spreading around the world, and could largely shake the free trade system that has supported global growth," he said.</p><p>In his congratulatory message to Trump, Japanese Prime Minister Shinzo Abe stressed the importance of the Asia-Pacific region as a source for growth but also tensions.</p><p>"In the 21st century, while the Asia-Pacific region is the source of the global economic growth, the security environment of the region is becoming more severe," he said.</p><p>___</p><p>CHINA BRACES FOR TROUBLE AHEAD</p><p>A Chinese state-run nationalist tabloid, the Global Times, says President Trump's inauguration speech indicates that the U.S. and China would inevitably face trade tensions.</p><p>The newspaper said in a Saturday commentary following Trump's inauguration that "dramatic changes" lay ahead for the U.S. and the global economic order.</p><p>"Undoubtedly, the Trump administration will be igniting many 'fires' on its front door and around the world. Let's wait and see when it will be China's turn," it said.</p><p>The paper noted that Trump blamed foreign trade policies for failing to put "America first," and said trade tensions between the U.S. and China seemed "inevitable within the four years ahead."</p><p>The paper says it expects that the Trump administration, in seeking to bring factories back to the U.S. from China, will use the U.S. government's relations with Taiwan as "merely a bargaining chip for them to put trade pressure on China."</p><p>In Beijing, Independent scholar and commentator Zhang Lifan drew a contrast between Trump's focus on domestic issues and Chinese President Xi Jinping's emphasis on international cooperation.</p><p>"The new U.S. administration's policy toward China is not clear now. In my view, Trump will deal with China like a businessman, especially on trade negotiations," Zhang said.</p><p>___</p><p>TAIWAN TWEETS</p><p>Taiwanese President Tsai Ing-wen tweeted her congratulations to Trump, saying: "Congratulations @realDonaldTrump. Democracy is what ties Taiwan and the US together. Look forward to advancing our friendship & partnership."</p><p>Trump didn't mention the self-ruled island in his speech, but he angered China and broke diplomatic protocol by talking by phone with Tsai shortly after winning November's election.</p><p>He has said earlier that Washington's "one China policy" under which it recognized Beijing in 1979 was open to negotiation, and questioned why the U.S. should be bound by such an approach without China offering incentives.</p><p>___</p><p>SOUTH KOREANS PUT SECURITY FIRST, WORRY ABOUT ALLIANCE, TRADE</p><p>Some in South Korea worried that President Trump would ask Seoul to shoulder a bigger share of the cost of U.S. forces stationed in South Korea as a deterrent against aggression from North Korea, or that their country will be caught in a conflict between the U.S. and China.</p><p>"I think the biggest challenge is the national defense," said Park Geon-rok, a 30-year-old designer, adding that South Korea was "heavily influenced by the U.S."</p><p>In an editorial, the English-language JoongAng Daily said South Korea's relations with the U.S. under Trump will face a challenge as the new leader will likely ask Seoul to pay more for the cost of the U.S. military forces in the country, and renegotiate a bilateral free trade agreement. But the paper also notes it is "fortunate" that Trump has a strong position on North Korea's nuclear weapons.</p><p>There were concerns about potential conflicts between the U.S. and China, South Korea's key business partner. Kim Kyung-jin, a spokesman for the opposition People's Party, said that the international economic order might collapse as the U.S. seeks its own economic interest. Kim urged Trump to ease such worries.</p><p>"There is a possibility of us becoming an innocent bystander who gets hurt in a fight," said Nam Hae-sook, a 62-year-old homemaker. "Also, I think President Trump will be different from President-elect Trump. I think things will work out."</p><p>In place of impeached President Park Geun-hye, Acting President and Prime Minister Hwang Kyo-ahn said in his congratulatory message to Trump that South Korea wishes to bolster the already close ties with the U.S. and cooperate on stopping North Korea's nuclear development.</p><p>___</p><p>INDIANS FRET ABOUT IMMIGRATION PROSPECTS</p><p>Among dozens of young, urban Indians who watched Trump's inauguration and speech at a club in a New Delhi, the 27-year-old Jigar Gorasia said getting work visas for professionals and green cards will become a problem.</p><p>"It is going to be a little bit challenging for those," said Gorasia, who studied and worked in Chicago before moving back to India last year.</p><p>Divya Narayanan, a 21-year-old student of journalism, said that Trump as president worried her. "Someone at the level of the U.S. president coming out and saying things which are bigoted, which are sexist, it sets a precedent for other people in the country, right?"</p><p>Indian newspapers highlighted Trump's protectionist policies in his speech. "America First President," read the banner headline of The Indian Express newspaper.</p><p>"Protectionist Trumpet: Buy American, Hire American," was the headline of The Times of India newspaper.</p><p>___</p><p>VIETNAMESE SAY SPEECH TOO AMERICA-FOCUSED</p><p>A Vietnamese analyst said Trump's speech was disappointing because it mainly served the domestic audience.</p><p>"I think this speech would be right for an election campaign, but not an inauguration speech," said Nguyen Ngoc Truong, president of Hanoi-based private policy think-tank Center for Strategic Studies and International Development.</p><p>"It should not be that simple because in an inauguration speech, you must introduce an objective and multi-faceted vision, not just one-sided vision to the American public," he said. "I don't think Trump could have a magic stick to be able to manage America to realize the goals that he outlined."</p><p>___</p><p>AUSTRALIANS FIND SPEECH DIVISIVE</p><p>An Australian father of two, Marek Rucinski, found Trump's speech "very divisive" and lacking substance.</p><p>"Normally these speeches are used to rally and unite people," he said. "It was, again, more bluster."</p><p>Rucinski was among some 8,000-10,000 people who attended a Women's March anti-Trump rally in Sydney's Hyde Park.</p><p>Self-described feminist, Niall Anderson, watched the president's inauguration in disbelief.</p><p>"Just disbelief that this can happen in 2017," the 35-year-old said.</p><p>The Australian newspaper's Foreign Editor Greg Sheridan wrote that "Trump answered one big question with his inauguration address: There is to be no transition from campaign Trump to presidential Trump."</p><p>"Donald Trump is always Donald Trump. This consistency is perhaps his chief virtue," Sheridan wrote.</p><p>"And his inauguration address made it clear that he intends to govern just as he campaigned, taking swings at his opponents, extolling his populist mantras, speaking in the slightly weird argot of contemporary down market celebrity," he added.</p><p>___</p><p>This story has been corrected to reflect that Mexican politician Ricardo Anaya Cortes called Trump's speech "populist."</p><p>___</p><p>Associated Press journalists Amir Shah and Kathy Gannon in Kabul, Afghanistan, Peter Orsi in Mexico City, Mari Yamaguchi and Emily Wang in Tokyo, Gillian Wong and Christopher Bodeen in Beijing, Youkyung Lee and Yong Jun Chang in Seoul, South Korea, Muneeza Naqvi in New Delhi, Tran Van Minh in Hanoi, Vietnam and Rod McGuirk in Canberra, Australia, contributed to this report.</p><br /><a href="#top">Back to top</a><br /><br /><br>------<h1 class="h1">Xinjiang Issues</h1><br><br><h3 class="h3" id="4">China Policy Institute: U.S. Government Commission Strategic Policy Analysis</h3><br /><a href="https://cpianalysis.org/2017/01/20/u-s-government-commission-strategic-policy-analysis/">https://cpianalysis.org/2017/01/20/u-s-government-commission-strategic-policy-analysis/</a><br /><br /><br /><br /><p>Written by Bert Chapman.</p><p>Bilateral relations between China and the U.S. encompass multiple issues including human rights, space power, trade relations, currency manipulation, cyber power, China’s increasing military assertiveness in the East and South China Seas, Beijing’s desire to implement this assertiveness through international legal forums and its economic assistance to other countries, and its desire to get other countries to submit to its desire to restrict international support for Taiwan.</p><p>This desire to impose its will on Taiwan and let the international community know of its intentions was vividly expressed when China sent its Liaoning aircraft carrier into the Taiwan Strait.  Taipei responded to this action by scrambling F-16 fighter jets and a deploying a frigate into these waters.Such action may be a response to Beijing’s displeasure with the U.S. due to incoming President Trump’s accepting a congratulatory phone call from Taiwanese President Tsai Ing-Wen which appeared to violate the purported one-China policy the U.S. has adhered to since it established formal diplomatic relations with China in 1979 while ostensibly breaking such relations with Taiwan.</p><p>Such action may be a response to Beijing’s displeasure with the U.S. due to incoming President Trump’s accepting a congratulatory phone call from Taiwanese President Tsai Ing-wen which appeared to violate the purported one-China policy the U.S. has adhered to since it established formal diplomatic relations with China in 1979 while ostensibly breaking such relations with Taiwan.</p><p>Nevertheless, the U.S. and Taiwan retain robust unofficial diplomatic relations and Washington periodically sells Taiwan military weapons to enable it to defend its sovereignty. It is possible that as part of its desire to change traditional U.S. foreign policy and reassert its military power, the Trump Administration may consider taking a more proactive stance in favour of Taiwan.  Other countries in the region, including Japan and South Korea, are concerned with China’s growing military assertiveness. A possible tangible response to Beijing’s military muscle-flexing is the announcement by Senate Armed Services Committee Chair John McCain that the U.S. should increase military spending by $85 billion per year over the next five years, ending the 2011 sequestration budget deal which has constricted defense spending, and devoting this increased defense spending to more fighter aircraft, increasing the number of Navy ships, and enhancing Air Force and Marine Corps personnel which would be highly relevant in any Western Pacific military contingencies. The Trump Administration’s forthcoming congressional budget proposal will also be a key indicator of how much a priority the Western Pacific will play in U.S. defence policy planning and resource allocation. Trump Administration national security strategy documents will also indicate whether the U.S. intends to expand, properly resource, and clarify the Obama Administration’s Asia-Pacific pivot.</p><p>Possible changes in U.S. policy priorities and spending toward China and the Western Pacific will be analysed, debated, and funded by other U.S. government agencies including congressional oversight committees and commissions.  One of these commissions is the U.S.-China Economic and Security Review Commission. USCC was established in Section 1238 of the 2001 National Defense Authorization Act. This law directed USCC to “monitor, investigate, and report to Congress on the national security implications of the bilateral trade and economic relationship between the United States and the People’s Republic of China.”  Commission membership consists of 12 members appointed by the Speaker of the House of Representatives and the Senate President Pro Tempore following consultations with each chamber’s majority and minority leaders and with the chairs of the House and Senate Armed Services and international trade oversight committees. Commission members serve two-year terms; are required to have expertise in U.S.-China national security matters; may be reappointed for additional terms of service; are provided with professional staff to carry out their responsibilities; each member has one vote; and the commission is required to submit annual classified and unclassified reports by March 1.</p><p>During Fiscal Year 2016 (October 1, 2015-September 30, 2016), USCC’s budget was $3.5 million and its members were supported by a professional staff of 18.  Commission members are listed on the commission website and during its tenure the commission has issued numerous annual reports documenting its work activities and containing policy recommendations as part of its congressionally mandated reporting requirements.  These annual reports have achieved relative bipartisan consensus with only five commissioners dissenting from overall report findings during the commission’s 15-year existence.  The commission also conducts hearings where it obtains information from congressional, independent, or executive agencies for gathering details about China-related agency activities, exposing operational failures, and proposing legislative revisions and recommendations enabling agencies to more effectively execute their policymaking responsibilities.</p><p>USCC, its professional staff, and contractors have also issued numerous studies documenting its work in multiple areas.  These include documentation of World Trade Organization (WTO) cases brought by the U.S. against China and by China against the U.S., analyses of Chinese investment in the U.S., a monthly Trade Bulletin detailing bilateral trade trends and developments involving these two countries, and analyses of foreign policy and international security developments involving these two countries and other Asia-Pacific countries on topics such as the July 12, 2016 international arbitration tribunal ruling in favor of the Philippines against China’s expansive South China Sea territorial and maritime claims, China’s Beidou satellite navigation system, Bejing’s efforts to counter the U.S. forward military presence in the Asia-Pacific, and many other topics.</p><p>China students and scholars should recognise USCC as an increasingly important source for Chinese and Western Pacific diplomatic, economic, political, and strategic policy analysis.  Its work products on this globally vital strategic reason can be constructively consulted by those seeking to evaluate Chinese economic and security policies, the reactions of the U.S. and other countries to Beijing’s policies, and the effectiveness or ineffectiveness of policy reactions by the U.S. and other countries toward Beijing. More information on USCC Western Pacific Strategic policy analysis can be found in the following article published in a forthcoming issue of Geopolitics, History, and International Relations.</p><p>Bert Chapman is Government Information, Political Science, and Economics Librarian/Professor of Library Science at Purdue University Libraries. Image credit: CC by U.S. Pacific Command/Flickr. </p><br /><a href="#top">Back to top</a><br /><br /><br>------<h1 class="h1">Other Ethnic Minority Issues</h1><br><br><h3 class="h3" id="3">ChannelNewsAsia: Smoking out the source of China's smog</h3><br /><a href="http://www.channelnewsasia.com/news/asiapacific/smoking-out-the-source-of-china-s-smog/3455942.html">http://www.channelnewsasia.com/news/asiapacific/smoking-out-the-source-of-china-s-smog/3455942.html</a><br /><br />By 
+Jeremy Koh, Channel NewsAsia
+
+Posted 21 Jan 2017 16:06
+Updated 21 Jan 2017 22:54<br /><br /><p>QIAN'AN, CHINA: Day and night, huge chimneys belch out thick smoke into the often-grey skies on the outskirts of Qian’an city, about 220 kilometres southeast of Beijing.</p><p>Steel mills around the area have been identified by the government as among the major emitters of air pollutants in northern China.</p><p>Songting village lies at the heart of the area. It is dubbed "the source of Beijing's smog” by some local media and residents have also complained about yellowish ground water. </p><p></p><p>The seemingly dull village is also closely guarded, tucked between steel mills Jiujiang Wire and Hebei Shougang Qian’an Iron and Steel, as well as a coal chemical plant. </p><p>According to Chinese media reports, the pollution is so bad that many villagers have died from cancer and other illnesses.</p><p>On Channel NewsAsia's first visit to the village, we were tailed by a white car so we did not stop until we had left the area. But we went back again in the afternoon. </p><p>During our short visit, the village looked abandoned with many houses overgrown with weed and we did not see any residents. When we exited the village, we were blocked by a car whose driver got out to take pictures of our vehicle.</p><p>And when we tried to leave Qian'an, there were cars tailing us for almost an hour. It was clear someone did not want the story to be told. </p><p></p><p>We were tailed by several cars after we tried to film in a village affected by pollution from steel mills in #Qianan #China pic.twitter.com/cxnthsz4d2</p><p>Dong Liansai, a climate and energy campaigner from Greenpeace, said: “This shows that they lack the awareness, and also, the fines for violating emission targets could be too low. So it’s not enough to deter them from polluting the environment and they feel that by spending some resources to chase away people who go there to investigate, it’ll be okay."</p><p>Channel NewsAsia did not get to speak to any villagers in Songting, but residents in the nearby village of Ma'ke showed us the sediments that were left behind after their well water was given time to settle. They also said that no matter how many times they cleaned their house, it was always covered in a layer of dust. </p><p>One of them, Madam Wang, said: “The air pollution is not good for the lungs and we don’t dare to ... drink the water. If we have the economic means to move away, of course we want to.” </p><p></p><p>Other residents echoed her sentiments. </p><p>One who did not want to be named said: “Of course we’re worried about our health. Many here have died from illnesses in their 50s. It’s not easy to diagnose. There have been brain hemorrhages and several have died from heart attacks.” </p><p>Another said: “I’m worried, but what can I do? No one cares. I want to leave, but if I leave, how can I survive? If I stay on, at least I can work and survive.”</p><p>More than three decades of breakneck economic growth has put a strain on China’s air, soil and water. In recent years, China has made fighting pollution a top priority, but that determination seems to have been weakened recently by the need to support growth as the Communist Party gets ready for a once-every-five-years congress later this year.</p><p>Just as the government declared stabilising economic growth last year, severe and prolonged smog returned. </p><p>Mr Dong from Greenpeace said: “We see that there are supervision mechanisms, but why are such mechanisms unable to effect a positive change?</p><p>"Firstly, can such mechanisms give companies a signal, a warning to show them that things are not how they were a few years ago, and that you will be punished if you don’t do a good job in protecting the environment? And also, are such mechanisms insufficient?”</p><p></p><p>He added: "Many people still think they can get away with pollution. In other words, they'll think that there aren't many cats to catch the rats and everyone's a rat, so maybe they won't be caught."</p><p>For residents living at ground zero of China’s fight against pollution, the future is truly foggy. </p><br /><a href="#top">Back to top</a><br /><br /><!-- ***************-->
+<!-- ***************-->
+<!-- ***************-->
+<!-- End Content-->
+<!-- ***************-->
+<!-- ***************-->
+<!-- ***************-->
+
+
+</div>
+</td>
+</tr>
+</table>
+<!-- // End Module: Standard Content \\ -->
+
+</td>
+</tr>
+</table>
+<!-- // End Template Body \\ -->
+</td>
+</tr>
+<tr>
+<td align="center" valign="top">
+<!-- // Begin Template Footer \\ -->
+<table border="0" cellpadding="10" cellspacing="0" width="600" id="templateFooter">
+<tr>
+<td valign="top" class="footerContent">
+
+<!-- // Begin Module: Standard Footer \\ -->
+<table border="0" cellpadding="10" cellspacing="0" width="100%">
+<tr>
+<td colspan="2" valign="middle" id="social">
+<div mc:edit="std_social">
+&nbsp;<a href="*|TWITTER:PROFILEURL|*">follow on Twitter</a> | <a href="*|FACEBOOK:PROFILEURL|*">friend on Facebook</a> | <a href="*|FORWARD|*">forward to a friend</a>&nbsp;
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top" width="350">
+<div mc:edit="std_footer">
+<em>Copyright &copy; *|CURRENT_YEAR|* *|LIST:COMPANY|*, All rights reserved.</em>
+<br />
+*|IFNOT:ARCHIVE_PAGE|* *|LIST:DESCRIPTION|*
+<br />
+<strong>Our mailing address is:</strong>
+<br />
+*|HTML:LIST_ADDRESS_HTML|**|END:IF|*
+</div>
+</td>
+<td valign="top" width="190" id="monkeyRewards">
+<div mc:edit="monkeyrewards">
+*|IF:REWARDS|* *|HTML:REWARDS|* *|END:IF|*
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="middle" id="utility">
+<div mc:edit="std_utility">
+&nbsp;<a href="*|UNSUB|*">unsubscribe from this list</a> | <a href="*|UPDATE_PROFILE|*">update subscription preferences</a>&nbsp;
+</div>
+</td>
+</tr>
+</table>
+<!-- // End Module: Standard Footer \\ -->
+
+</td>
+</tr>
+</table>
+<!-- // End Template Footer \\ -->
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+</table>
+</center>
+</body>
+</html>
+<!--template adapted from the mailchimp simple-basic html template (https://github.com/mailchimp/email-blueprints/tree/master/templates) under a Creative Commons Attribution-ShareAlike 3.0 Unported License -->
