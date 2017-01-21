@@ -4,83 +4,31 @@ import urllib
 #csv is for the csv writer
 import csv
 
-#TODO in holder():changes you need to make to each entry
-#stop adding the URL to the start of the body text
-    #delete "article_text = url + "\n" + "\r""
-#declare article_text now that you have delted that line
-    #change "article_text += '\n' + ''.join . . ."
-    #to "article_text = '\n' + ''.join . . ."
-    #(change += to just =)
-#add the holder_cat_2 section at the end
-# remove the old holder section
-    # delete "holder[headline_text] = article_text"
 
-
-"""
-Included Sources:
-
-1843 Magazine
-BBC
-Caixin
-ChannelNewsAsia
-ChinaChange
-China Digital Times
-ChinaFile
-China Media Project
-China Policy Institute
-Chublic Opinion
-Dui Hua Human Rights Journal
-East Asia Forum
-Foreign Policy
-Free Tibet
-The Guardian
-LA Times
-Quartz
-Radio Free Asia
-Reuters
-SCMP
-Sixth Tone
-Sydney Morning Herald
-TCHRD
-Tibetan Review
-Wall Street Journal
-Washington Post
-Xinhua
-Xinjiang Review
-
-
-Tried and Failed to Add:
-
-nytimes
-nybooks
-hong kong free press
-the nanfang
-world policy journal
-phayul
-the national interest
-ICT
-yahoo
-politics from the provinces
-Medium
-the diplomat
-
-"""
 
 #data structure is now a list of dictionaries:
 # holder = [{'url': TheURL, 'story_title': TheTitle, 'story_body': TheBody},{'url': TheURL, 'story_title': TheTitle, 'story_body': TheBody}, {'url': TheURL, 'story_title': TheTitle, 'story_body': TheBody},]
 
 
-#this will hold the output of headliner() for category 1 stories
-holder_cat_1 = []
-#this will hold the output of headliner() for category 2 stories
-holder_cat_2 = []
+#this will hold the output of headliner() for category H stories
+holder_cat_H = []
+#this will hold the output of headliner() for category T stories
+holder_cat_T = []
+#this will hold the output of headliner() for category X stories
+holder_cat_X = []
+#this will hold the output of headliner() for category M stories
+holder_cat_M = []
 #this will hold the unmatched URLs output of headliner() - basically it catches the errors
 unmatched_holder = []
+
+#DELETE THESE ONCE YOU HAVE NEW HEADLINER BITS
+holder_cat_1 = []
+holder_cat_2 = []
 
 
 #opens the input doc with the URLs
 txt = open("tester2col.csv")
-#opens the output doc where the output data will live
+#opens the output doc where the error output data will live
 output_txt = open("china-daily-email-error-output.txt", "w")
 
 #****************************************
@@ -408,27 +356,55 @@ headliner(txt)
 email_output.write(first_half_html_contents)
 
 #2 write the TOC
-    #Section header for Category 1
+    #Section header for Category H
     #writes the first part of the html, fills in the headline text, wraps it up
-email_output.write('<h1 class="h1">'+"Category 1 Headlines"+'</h1>')
+email_output.write('<h1 class="h1">'+"General Human Rights Issues"+'</h1>')
 email_output.write("<br>")
-for item in holder_cat_1:
+for item in holder_cat_H:
     #first part of h2, plus the tag target, plus the headline, wrap it up
     email_output.write('<h3 class="h3"><a href="#'+str(item['uid'])+'">'+item['story_title']+'</a></h3>')
     email_output.write("<br>")
 
-#add some space
+    #add some space
 email_output.write("<br>")
 email_output.write("<br>")
 email_output.write("<br>")
 
-    #section header again for Category 2
-email_output.write('<h1 class="h1">'+"Category 2 Headlines"+'</h1>')
+    #section header again for Category T
+email_output.write('<h1 class="h1">'+"Tibetan Issues"+'</h1>')
 email_output.write("<br>")
-for item in holder_cat_2:
+for item in holder_cat_T:
     #first part of h2, plus the tag target, plus the headline, wrap it up
     email_output.write('<h3 class="h3"><a href="#'+str(item['uid'])+'">'+item['story_title']+'</a></h3>')
     email_output.write("<br>")
+
+    #add some space
+email_output.write("<br>")
+email_output.write("<br>")
+email_output.write("<br>")
+
+    #section header again for Category X
+email_output.write('<h1 class="h1">'+"Xinjiang Issues"+'</h1>')
+email_output.write("<br>")
+for item in holder_cat_X:
+    #first part of h2, plus the tag target, plus the headline, wrap it up
+    email_output.write('<h3 class="h3"><a href="#'+str(item['uid'])+'">'+item['story_title']+'</a></h3>')
+    email_output.write("<br>")
+
+    #add some space
+email_output.write("<br>")
+email_output.write("<br>")
+email_output.write("<br>")
+
+    #section header again for Category M
+email_output.write('<h1 class="h1">'+"Other Ethnic Minority Issues"+'</h1>')
+email_output.write("<br>")
+for item in holder_cat_M:
+    #first part of h2, plus the tag target, plus the headline, wrap it up
+    email_output.write('<h3 class="h3"><a href="#'+str(item['uid'])+'">'+item['story_title']+'</a></h3>')
+    email_output.write("<br>")
+
+
 
 #3 create a border between the TOC and the body
 email_output.write("<br>")
@@ -437,10 +413,10 @@ email_output.write("************************")
 email_output.write("<br>")
 email_output.write("<br>")
 
-#4a iterates though the stories in category 1
-email_output.write('<h1 class="h1">'+'Category 1 Stories'+'</h1>')
+#4a iterates though the stories in category H
+email_output.write('<h1 class="h1">'+'General Human Rights Issues'+'</h1>')
 email_output.write("<br>")
-for item in holder_cat_1:
+for item in holder_cat_H:
     email_output.write("<br>")
     #this is the headline with an anchor tag
     email_output.write('<h3 class="h3" id="'+str(item['uid'])+'">'+item['story_title']+'</h3>')
@@ -455,10 +431,46 @@ for item in holder_cat_1:
     email_output.write("<br />")
     email_output.write("<br />")
 
-#4b iterates though the stories in category 2
-email_output.write('<h1 class="h1">'+'Category 2 Stories'+'</h1>')
+#4b iterates though the stories in category T
+email_output.write('<h1 class="h1">'+'Tibetan Issues'+'</h1>')
 email_output.write("<br>")
-for item in holder_cat_2:
+for item in holder_cat_T:
+    email_output.write("<br>")
+    #this is the headline with an anchor tag
+    email_output.write('<h3 class="h3" id="'+str(item['uid'])+'">'+item['story_title']+'</h3>')
+    email_output.write("<br />")
+    #this is the URL that links out
+    email_output.write('<a href="'+item['url']+'">'+item['url']+'</a>')
+    email_output.write("<br />")
+    #this is the body
+    email_output.write(item['story_body'])
+    email_output.write("<br />")
+    email_output.write('<a href="#top">Back to top</a>')
+    email_output.write("<br />")
+    email_output.write("<br />")
+
+#4c iterates though the stories in category X
+email_output.write('<h1 class="h1">'+'Xinjiang Issues'+'</h1>')
+email_output.write("<br>")
+for item in holder_cat_X:
+    email_output.write("<br>")
+    #this is the headline with an anchor tag
+    email_output.write('<h3 class="h3" id="'+str(item['uid'])+'">'+item['story_title']+'</h3>')
+    email_output.write("<br />")
+    #this is the URL that links out
+    email_output.write('<a href="'+item['url']+'">'+item['url']+'</a>')
+    email_output.write("<br />")
+    #this is the body
+    email_output.write(item['story_body'])
+    email_output.write("<br />")
+    email_output.write('<a href="#top">Back to top</a>')
+    email_output.write("<br />")
+    email_output.write("<br />")
+
+#4d iterates though the stories in category M
+email_output.write('<h1 class="h1">'+'Other Ethnic Minority Issues'+'</h1>')
+email_output.write("<br>")
+for item in holder_cat_M:
     email_output.write("<br>")
     #this is the headline with an anchor tag
     email_output.write('<h3 class="h3" id="'+str(item['uid'])+'">'+item['story_title']+'</h3>')
