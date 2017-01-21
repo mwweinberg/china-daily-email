@@ -437,6 +437,13 @@ for item in holder_cat_H:
     #this is the URL that links out
     email_output.write('<a href="'+item['url']+'">'+item['url']+'</a>')
     email_output.write("<br />")
+    #this is the author
+    email_output.write(item['author'])
+    email_output.write("<br />")
+    #this is the date
+    email_output.write(item['date'])
+    email_output.write("<br />")
+    email_output.write("<br />")
     #this is the body
     email_output.write(item['story_body'])
     email_output.write("<br />")
@@ -454,6 +461,13 @@ for item in holder_cat_T:
     email_output.write("<br />")
     #this is the URL that links out
     email_output.write('<a href="'+item['url']+'">'+item['url']+'</a>')
+    email_output.write("<br />")
+    #this is the author
+    email_output.write(item['author'])
+    email_output.write("<br />")
+    #this is the date
+    email_output.write(item['date'])
+    email_output.write("<br />")
     email_output.write("<br />")
     #this is the body
     email_output.write(item['story_body'])
@@ -473,6 +487,13 @@ for item in holder_cat_X:
     #this is the URL that links out
     email_output.write('<a href="'+item['url']+'">'+item['url']+'</a>')
     email_output.write("<br />")
+    #this is the author
+    email_output.write(item['author'])
+    email_output.write("<br />")
+    #this is the date
+    email_output.write(item['date'])
+    email_output.write("<br />")
+    email_output.write("<br />")
     #this is the body
     email_output.write(item['story_body'])
     email_output.write("<br />")
@@ -490,6 +511,13 @@ for item in holder_cat_M:
     email_output.write("<br />")
     #this is the URL that links out
     email_output.write('<a href="'+item['url']+'">'+item['url']+'</a>')
+    email_output.write("<br />")
+    #this is the author
+    email_output.write(item['author'])
+    email_output.write("<br />")
+    #this is the date
+    email_output.write(item['date'])
+    email_output.write("<br />")
     email_output.write("<br />")
     #this is the body
     email_output.write(item['story_body'])
