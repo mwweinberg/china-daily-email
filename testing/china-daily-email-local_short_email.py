@@ -439,11 +439,11 @@ email_output.write("<br>")
 
 #4a iterates though the stories in category 1
 email_output.write('<h1 class="h1">'+'Category 1 Stories'+'</h1>')
+email_output.write("<br>")
 for item in holder_cat_1:
-    email_output.write("\r")
-    email_output.write("\n")
+    email_output.write("<br>")
     #this is the headline with an anchor tag
-    email_output.write('<h2 class="h2" id="'+str(item['uid'])+'">'+item['story_title']+'</h2>')
+    email_output.write('<h3 class="h3" id="'+str(item['uid'])+'">'+item['story_title']+'</h3>')
     email_output.write("<br />")
     #this is the URL that links out
     email_output.write('<a href="'+item['url']+'">'+item['url']+'</a>')
@@ -457,11 +457,11 @@ for item in holder_cat_1:
 
 #4b iterates though the stories in category 2
 email_output.write('<h1 class="h1">'+'Category 2 Stories'+'</h1>')
+email_output.write("<br>")
 for item in holder_cat_2:
-    email_output.write("\r")
-    email_output.write("\n")
+    email_output.write("<br>")
     #this is the headline with an anchor tag
-    email_output.write('<h2 class="h2" id="'+str(item['uid'])+'">'+item['story_title']+'</h2>')
+    email_output.write('<h3 class="h3" id="'+str(item['uid'])+'">'+item['story_title']+'</h3>')
     email_output.write("<br />")
     #this is the URL that links out
     email_output.write('<a href="'+item['url']+'">'+item['url']+'</a>')
