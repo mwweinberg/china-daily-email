@@ -115,7 +115,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -168,7 +168,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -221,7 +221,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -274,7 +274,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -330,7 +330,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -383,7 +383,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -436,7 +436,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -489,7 +489,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -545,7 +545,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -598,7 +598,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -651,7 +651,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -704,7 +704,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -760,7 +760,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -813,7 +813,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -866,7 +866,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -919,7 +919,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -975,7 +975,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1028,7 +1028,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1081,7 +1081,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1134,7 +1134,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1191,7 +1191,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1244,7 +1244,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1297,7 +1297,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1350,7 +1350,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1407,7 +1407,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1460,7 +1460,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1513,7 +1513,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1566,7 +1566,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1623,7 +1623,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1676,7 +1676,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1729,7 +1729,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1782,7 +1782,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1839,7 +1839,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1892,7 +1892,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1945,7 +1945,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -1998,7 +1998,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2055,7 +2055,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2108,7 +2108,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2161,7 +2161,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2214,7 +2214,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2271,7 +2271,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2324,7 +2324,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2377,7 +2377,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2430,7 +2430,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2487,7 +2487,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2540,7 +2540,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2593,7 +2593,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2646,7 +2646,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2702,7 +2702,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2755,7 +2755,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2808,7 +2808,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2861,7 +2861,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2921,7 +2921,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -2974,7 +2974,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3027,7 +3027,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3080,7 +3080,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3137,7 +3137,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3190,7 +3190,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3243,7 +3243,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3296,7 +3296,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3353,7 +3353,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3407,7 +3407,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3461,7 +3461,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3515,7 +3515,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3572,7 +3572,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3625,7 +3625,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3678,7 +3678,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3731,7 +3731,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3789,7 +3789,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3844,7 +3844,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3899,7 +3899,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -3954,7 +3954,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4011,7 +4011,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4064,7 +4064,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4117,7 +4117,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4170,7 +4170,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4227,7 +4227,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4280,7 +4280,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4333,7 +4333,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4386,7 +4386,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4443,7 +4443,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4497,7 +4497,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4551,7 +4551,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4605,7 +4605,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4663,7 +4663,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4716,7 +4716,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4769,7 +4769,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4822,7 +4822,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4881,7 +4881,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4936,7 +4936,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -4991,7 +4991,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5046,7 +5046,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5102,7 +5102,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5155,7 +5155,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5208,7 +5208,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5261,7 +5261,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5317,7 +5317,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5370,7 +5370,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5423,7 +5423,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5476,7 +5476,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5532,7 +5532,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5585,7 +5585,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5638,7 +5638,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5691,7 +5691,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5748,7 +5748,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5801,7 +5801,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5854,7 +5854,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5907,7 +5907,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -5963,7 +5963,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6016,7 +6016,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6069,7 +6069,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6122,7 +6122,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6178,7 +6178,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6231,7 +6231,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6284,7 +6284,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6337,7 +6337,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6395,7 +6395,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6449,7 +6449,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6503,7 +6503,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6557,7 +6557,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6614,7 +6614,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6668,7 +6668,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6722,7 +6722,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6776,7 +6776,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6835,7 +6835,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6889,7 +6889,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6943,7 +6943,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -6997,7 +6997,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7057,7 +7057,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7110,7 +7110,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7163,7 +7163,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7216,7 +7216,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7274,7 +7274,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7328,7 +7328,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7382,7 +7382,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7436,7 +7436,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7493,7 +7493,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7547,7 +7547,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7601,7 +7601,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7655,7 +7655,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7712,7 +7712,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7765,7 +7765,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7818,7 +7818,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7871,7 +7871,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7927,7 +7927,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -7980,7 +7980,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8033,7 +8033,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8086,7 +8086,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8142,7 +8142,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8195,7 +8195,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8248,7 +8248,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8301,7 +8301,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8358,7 +8358,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8412,7 +8412,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8466,7 +8466,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8520,7 +8520,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8579,7 +8579,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8634,7 +8634,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8689,7 +8689,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8744,7 +8744,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8800,7 +8800,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8853,7 +8853,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8906,7 +8906,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -8959,7 +8959,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9017,7 +9017,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9072,7 +9072,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9127,7 +9127,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9182,7 +9182,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9242,7 +9242,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9297,7 +9297,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9352,7 +9352,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9407,7 +9407,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9467,7 +9467,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9523,7 +9523,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9579,7 +9579,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9635,7 +9635,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9693,7 +9693,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9748,7 +9748,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9803,7 +9803,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9858,7 +9858,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9917,7 +9917,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -9972,7 +9972,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10027,7 +10027,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10082,7 +10082,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10142,7 +10142,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10198,7 +10198,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10254,7 +10254,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10310,7 +10310,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10367,7 +10367,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10420,7 +10420,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10473,7 +10473,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10526,7 +10526,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10584,7 +10584,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10639,7 +10639,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10694,7 +10694,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10749,7 +10749,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10806,7 +10806,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10861,7 +10861,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10916,7 +10916,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -10971,7 +10971,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11029,7 +11029,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11084,7 +11084,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11139,7 +11139,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11194,7 +11194,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11252,7 +11252,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11307,7 +11307,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11362,7 +11362,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11417,7 +11417,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11475,7 +11475,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11530,7 +11530,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11585,7 +11585,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11640,7 +11640,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11698,7 +11698,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11753,7 +11753,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11808,7 +11808,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11863,7 +11863,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11921,7 +11921,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -11976,7 +11976,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12031,7 +12031,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12086,7 +12086,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12143,7 +12143,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12198,7 +12198,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12253,7 +12253,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12308,7 +12308,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12365,7 +12365,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12420,7 +12420,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12475,7 +12475,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12530,7 +12530,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12588,7 +12588,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12643,7 +12643,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12698,7 +12698,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
@@ -12753,7 +12753,7 @@ def headliner(url):
             for element in article:
                 #add a line break and then the text part of the paragraph
                 #the .encode part fixes unicode bullshit
-                article_text += '\n' + ''.join(element.findAll(text = True)).encode('utf-8').strip()
+                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
 
             #This takes the elements and writes them to the dict
             #temp_dict will hold the info from this entry
