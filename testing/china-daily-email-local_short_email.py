@@ -452,6 +452,8 @@ for item in holder_cat_H:
     email_output.write("<br />")
 
 #4b iterates though the stories in category T
+email_output.write("<br>")
+email_output.write("------")
 email_output.write('<h1 class="h1">'+'Tibetan Issues'+'</h1>')
 email_output.write("<br>")
 for item in holder_cat_T:
@@ -477,6 +479,8 @@ for item in holder_cat_T:
     email_output.write("<br />")
 
 #4c iterates though the stories in category X
+email_output.write("<br>")
+email_output.write("------")
 email_output.write('<h1 class="h1">'+'Xinjiang Issues'+'</h1>')
 email_output.write("<br>")
 for item in holder_cat_X:
@@ -502,6 +506,8 @@ for item in holder_cat_X:
     email_output.write("<br />")
 
 #4d iterates though the stories in category M
+email_output.write("<br>")
+email_output.write("------")
 email_output.write('<h1 class="h1">'+'Other Ethnic Minority Issues'+'</h1>')
 email_output.write("<br>")
 for item in holder_cat_M:
