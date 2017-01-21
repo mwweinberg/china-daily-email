@@ -1,6 +1,8 @@
 # china-daily-email
 compiles a summary of stories about china based on text file input
 
+The live folder has the most up to date working version of the script, along with an example of the input csv.  Everything else here is just for development.
+
 one-simple.py reads a single URL from a txt file and prints the headline and story
 
 adder.py should be used to test new site configurations.
