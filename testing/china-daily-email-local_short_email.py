@@ -411,31 +411,31 @@ email_output.write(first_half_html_contents)
     #Section header for Category 1
     #writes the first part of the html, fills in the headline text, wraps it up
 email_output.write('<h1 class="h1">'+"Category 1 Headlines"+'</h1>')
-email_output.write("\n")
-email_output.write("\r")
+email_output.write("<br>")
 for item in holder_cat_1:
     #first part of h2, plus the tag target, plus the headline, wrap it up
-    email_output.write('<h2 class="h2"><a href="#'+str(item['uid'])+'">'+item['story_title']+'</a></h2>')
-    email_output.write("\r")
+    email_output.write('<h3 class="h3"><a href="#'+str(item['uid'])+'">'+item['story_title']+'</a></h3>')
+    email_output.write("<br>")
 
 #add some space
-output_txt.write("\n")
-output_txt.write("\r")
+email_output.write("<br>")
+email_output.write("<br>")
+email_output.write("<br>")
 
     #section header again for Category 2
 email_output.write('<h1 class="h1">'+"Category 2 Headlines"+'</h1>')
-email_output.write("\n")
-email_output.write("\r")
+email_output.write("<br>")
 for item in holder_cat_2:
     #first part of h2, plus the tag target, plus the headline, wrap it up
-    email_output.write('<h2 class="h2"><a href="#'+str(item['uid'])+'">'+item['story_title']+'</a></h2>')
-    email_output.write("\r")
+    email_output.write('<h3 class="h3"><a href="#'+str(item['uid'])+'">'+item['story_title']+'</a></h3>')
+    email_output.write("<br>")
 
 #3 create a border between the TOC and the body
-#may want to rethink  how this works/looks but it is fine for now
-email_output.write("\n")
-email_output.write("*************************************")
-email_output.write("\n")
+email_output.write("<br>")
+email_output.write("<br>")
+email_output.write("************************")
+email_output.write("<br>")
+email_output.write("<br>")
 
 #4a iterates though the stories in category 1
 email_output.write('<h1 class="h1">'+'Category 1 Stories'+'</h1>')
