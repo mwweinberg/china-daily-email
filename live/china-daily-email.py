@@ -1153,7 +1153,7 @@ def headliner(url):
 
 
 
-        elif "chinachange" in url and code == "t":
+        elif "chinachange" in url and code == "h":
             #opens the url for read access
             this_url = urllib.urlopen(url).read()
             #creates a new BS holder based on the URL
