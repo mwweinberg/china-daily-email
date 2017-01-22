@@ -12793,7 +12793,7 @@ email_output.write('<h1 class="h1" id = "top"></h1>')
 #3 write the TOC
     #Section header for Category H
     #writes the first part of the html, fills in the headline text, wraps it up
-email_output.write('<h1 class="h1">'+"General Human Rights Issues"+'</h1>')
+email_output.write('<h1 class="h1">'+"Grab Bag"+'</h1>')
 email_output.write("<br>")
 for item in holder_cat_H:
     #first part of h2, plus the tag target, plus the headline, wrap it up
