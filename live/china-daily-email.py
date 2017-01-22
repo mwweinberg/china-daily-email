@@ -12849,7 +12849,7 @@ email_output.write("<br>")
 email_output.write("<br>")
 
 #5a iterates though the stories in category H
-email_output.write('<h1 class="h1">'+'General Human Rights Issues'+'</h1>')
+email_output.write('<h1 class="h1">'+'Grab Bag'+'</h1>')
 email_output.write("<br>")
 for item in holder_cat_H:
     email_output.write("<br>")
