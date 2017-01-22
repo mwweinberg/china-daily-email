@@ -4,6 +4,85 @@ import urllib
 #csv is for the csv writer
 import csv
 
+'''
+Sources that work as-is (pasted in as first traunche below):
+Asia Times
+Associated Press
+CBC
+ChannelNewsAsia
+China Policy Institute
+ChinaChange (date/author included in body text)
+China Daily (date included in author block)
+Chublic Opinion
+The Guardian
+Reuters
+Sydney Morning Herald
+Tibetan Review
+Yahoo
+
+
+Sources that work with the author/date mods, but need some further mods later (pasted in as second traunche below):
+China Media Project -- strip out pic captions
+ChinaFile -- this worked, but body text is messed up for "conversations".  will have to either hand-paste or link those
+Chinese Politics from the Provinces -- weird line breaks
+Dui Hua -- internal formatting
+Global Times -- strip out captions, no para breaks
+The Globe and Mail -- strip picture captions
+Jerry's Blog -- has name pasted on end of title
+Open Democracy -- strip out captions
+People's Daily -- name pasted on end of title
+Phayul -- no para breaks
+Radio Free Asia -- no paragraph breaks
+Sixth Tone -- strip out pic captions
+SCMP -- need to strip out "comments:" and mid-article links to other articles
+SupChina -- has name pasted on end of title
+Supreme People's Court Monitor -- has name pasted on end of title
+The Telegraph -- author name has comma at end of it
+Tibet.net -- author, strip out pic captions
+What's on Weibo -- strip out captions and pull quotes
+Xinhua -- strip out pic captions
+
+
+
+Sources that have problems with author/date mods (pasted in third traunche with problem areas zeroed out):
+Bangkok Post -- couldn't get the author to work, source name repasted at end of title
+BBC -- date doesn't work, source name repasted at end of title
+Bloomberg -- date doesn't work, source name repeated at end of title
+Caixin -- date is garbled, not human-readable
+China Digital Times -- can't get the date without the other metadata, may need to work on body formatting
+Foreign Policy -- date is repeated 10 times (inluding today's date)
+Free Tibet -- date is repeated multiple times, subheads missing in body text
+Quartz -- author/date repeated twice
+TCHRD -- similar problem to Foreign Policy where date is repeated over and over
+Washington Post -- author name doubled
+
+
+
+Sources that will be headline-only for now (traunche four):
+Foreign Affairs -- subscriber cutoff in body text
+France 24 -- can't get the body text to show up without all the extra headlines at the end
+LA Times -- body text is strange, ads at end
+VOA -- strip out embedded media player at beginning of body text
+WSJ -- need to figure out cutoff situation
+
+
+Sources that cannot be used at all as is (even headline doesn't work -- pasted in at very bottom):
+1843 Magazine -- adds into title "Sorry, you need to enable JavaScript to visit this website."
+China Film Insider -- couldn't get body text to show up, then suddenly couldn't even get headline to show up
+The Diplomat -- couldn't get title or body text to show up
+East Asia Forum   -- couldn't get title or body text to show up
+The Economist  -- couldn't get title or body text to show up
+Freedomhouse China Media Bulletin -- no code below, website down
+Hong Kong Free press -- couldn't get title or body text to show up
+Intl Campaign for Tibet  -- couldn't get title or body text to show up
+Medium -- couldn't get title or body text to show up
+The National Interest -- couldn't get title or body text to show up
+NY Books  -- couldn't get title or body text to show up
+NY Times -- couldn't get title or body text to show up
+
+'''
+
+
 
 
 #data structure is now a list of dictionaries:
@@ -10328,2445 +10407,2445 @@ def headliner(url):
 
         #5. cannot be used as-is
 
-
-        elif "1843magazine" in url and code == "h":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = '1843 Magazine: '
-            headline = soup.find_all('h1')
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            date = soup.find_all("span", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            author = soup.find_all("p", {"class" : "footer-credits__author"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find("section", {"class" : "article__body page-and-article-content"}).findAll('p')
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_H.append(temp_dict)
-
-        elif "1843magazine" in url and code == "t":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = '1843 Magazine: '
-            headline = soup.find_all('h1')
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            date = soup.find_all("span", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            author = soup.find_all("p", {"class" : "footer-credits__author"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find("section", {"class" : "article__body page-and-article-content"}).findAll('p')
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_T.append(temp_dict)
-
-        elif "1843magazine" in url and code == "x":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = '1843 Magazine: '
-            headline = soup.find_all('h1')
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            date = soup.find_all("span", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            author = soup.find_all("p", {"class" : "footer-credits__author"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find("section", {"class" : "article__body page-and-article-content"}).findAll('p')
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_X.append(temp_dict)
-
-        elif "1843magazine" in url and code == "m":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = '1843 Magazine: '
-            headline = soup.find_all('h1')
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            date = soup.find_all("span", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            author = soup.find_all("p", {"class" : "footer-credits__author"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find("section", {"class" : "article__body page-and-article-content"}).findAll('p')
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_M.append(temp_dict)
-
-
-
-
-        elif "chinafilminsider" in url and code == "h":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'China Film Insider: '
-            headline = soup.find_all("h1", {"class" : "entry-title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("span", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "nothing"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_H.append(temp_dict)
-
-        elif "chinafilminsider" in url and code == "t":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'China Film Insider: '
-            headline = soup.find_all("h1", {"class" : "entry-title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("span", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "nothing"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_T.append(temp_dict)
-
-        elif "chinafilminsider" in url and code == "x":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'China Film Insider: '
-            headline = soup.find_all("h1", {"class" : "entry-title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("span", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "nothing"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_X.append(temp_dict)
-
-        elif "chinafilminsider" in url and code == "m":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'China Film Insider: '
-            headline = soup.find_all("h1", {"class" : "entry-title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("span", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "nothing"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_M.append(temp_dict)
-
-
-
-        elif "thediplomat" in url and code == "h":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The Diplomat: '
-            headline = soup.find_all("h1", {"itemprop" : "name"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("h2", {"class" : "date-header"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "postBody ng-scope"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_H.append(temp_dict)
-
-        elif "thediplomat" in url and code == "t":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The Diplomat: '
-            headline = soup.find_all("h1", {"itemprop" : "name"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("h2", {"class" : "date-header"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "postBody ng-scope"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_T.append(temp_dict)
-
-        elif "thediplomat" in url and code == "x":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The Diplomat: '
-            headline = soup.find_all("h1", {"itemprop" : "name"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("h2", {"class" : "date-header"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "postBody ng-scope"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_X.append(temp_dict)
-
-        elif "thediplomat" in url and code == "m":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The Diplomat: '
-            headline = soup.find_all("h1", {"itemprop" : "name"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("h2", {"class" : "date-header"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "postBody ng-scope"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_M.append(temp_dict)
-
-
-
-
-        elif "eastasiaforum" in url and code == "h":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'East Asia Forum: '
-            headline = soup.find_all('h1')
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("h2", {"class" : "date-header"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("section", {"class" : "content"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_H.append(temp_dict)
-
-        elif "eastasiaforum" in url and code == "t":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'East Asia Forum: '
-            headline = soup.find_all('h1')
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("h2", {"class" : "date-header"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("section", {"class" : "content"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_T.append(temp_dict)
-
-        elif "eastasiaforum" in url and code == "x":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'East Asia Forum: '
-            headline = soup.find_all('h1')
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("h2", {"class" : "date-header"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("section", {"class" : "content"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_X.append(temp_dict)
-
-        elif "eastasiaforum" in url and code == "m":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'East Asia Forum: '
-            headline = soup.find_all('h1')
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("h2", {"class" : "date-header"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("section", {"class" : "content"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_M.append(temp_dict)
-
-
-
-
-        elif "economist.com" in url and code == "h":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The Economist: '
-            headline = soup.find_all("span", {"class" : "flytitle-and-title__title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("h2", {"class" : "date-header"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "blog-post__text"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_H.append(temp_dict)
-
-        elif "economist.com" in url and code == "t":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The Economist: '
-            headline = soup.find_all("span", {"class" : "flytitle-and-title__title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("h2", {"class" : "date-header"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "blog-post__text"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_T.append(temp_dict)
-
-        elif "economist.com" in url and code == "x":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The Economist: '
-            headline = soup.find_all("span", {"class" : "flytitle-and-title__title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("h2", {"class" : "date-header"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "blog-post__text"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_X.append(temp_dict)
-
-        elif "economist.com" in url and code == "m":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The Economist: '
-            headline = soup.find_all("span", {"class" : "flytitle-and-title__title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("h2", {"class" : "date-header"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "blog-post__text"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_M.append(temp_dict)
-
-
-
-
-        elif "hongkongfp" in url and code == "h":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'Hong Kong Free Press: '
-            headline = soup.find_all("h1", {"class" : "entry-title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #unneeded
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "nothing"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_H.append(temp_dict)
-
-        elif "hongkongfp" in url and code == "t":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'Hong Kong Free Press: '
-            headline = soup.find_all("h1", {"class" : "entry-title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #unneeded
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "nothing"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_T.append(temp_dict)
-
-        elif "hongkongfp" in url and code == "x":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'Hong Kong Free Press: '
-            headline = soup.find_all("h1", {"class" : "entry-title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #unneeded
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "nothing"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_X.append(temp_dict)
-
-        elif "hongkongfp" in url and code == "m":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'Hong Kong Free Press: '
-            headline = soup.find_all("h1", {"class" : "entry-title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #unneeded
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "nothing"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_M.append(temp_dict)
-
-
-
-
-        elif "savetibet" in url and code == "h":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'International Campaign for Tibet: '
-            headline = soup.find_all("span", {"class" : "trail-end"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "nothing"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_H.append(temp_dict)
-
-        elif "savetibet" in url and code == "t":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'International Campaign for Tibet: '
-            headline = soup.find_all("span", {"class" : "trail-end"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "nothing"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_T.append(temp_dict)
-
-        elif "savetibet" in url and code == "x":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'International Campaign for Tibet: '
-            headline = soup.find_all("span", {"class" : "trail-end"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "nothing"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_X.append(temp_dict)
-
-        elif "savetibet" in url and code == "m":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'International Campaign for Tibet: '
-            headline = soup.find_all("span", {"class" : "trail-end"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "nothing"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_M.append(temp_dict)
-
-
-
-
-        elif "medium.com" in url and code == "h":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The Medium: '
-            headline = soup.find_all("p", {"class" : "graf graf--p graf--leading"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("p", {"class" : "graf graf--p graf-after--p"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_H.append(temp_dict)
-
-        elif "medium.com" in url and code == "t":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The Medium: '
-            headline = soup.find_all("p", {"class" : "graf graf--p graf--leading"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("p", {"class" : "graf graf--p graf-after--p"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_T.append(temp_dict)
-
-        elif "medium.com" in url and code == "x":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The Medium: '
-            headline = soup.find_all("p", {"class" : "graf graf--p graf--leading"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("p", {"class" : "graf graf--p graf-after--p"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_X.append(temp_dict)
-
-        elif "medium.com" in url and code == "m":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The Medium: '
-            headline = soup.find_all("p", {"class" : "graf graf--p graf--leading"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("p", {"class" : "graf graf--p graf-after--p"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_M.append(temp_dict)
-
-
-
-        elif "nationalinterest" in url and code == "h":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The National Interest: '
-            headline = soup.find_all("h1", {"class" : "page-title title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "node-content"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_H.append(temp_dict)
-
-        elif "nationalinterest" in url and code == "t":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The National Interest: '
-            headline = soup.find_all("h1", {"class" : "page-title title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "node-content"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_T.append(temp_dict)
-
-        elif "nationalinterest" in url and code == "x":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The National Interest: '
-            headline = soup.find_all("h1", {"class" : "page-title title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "node-content"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_X.append(temp_dict)
-
-        elif "nationalinterest" in url and code == "m":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The National Interest: '
-            headline = soup.find_all("h1", {"class" : "page-title title"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("div", {"class" : "node-content"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_M.append(temp_dict)
-
-
-
-        elif "nybooks" in url and code == "h":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The New York Review of Books: '
-            headline = soup.find_all('h2')
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("section", {"class" : "article_body"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_H.append(temp_dict)
-
-        elif "nybooks" in url and code == "t":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The New York Review of Books: '
-            headline = soup.find_all('h2')
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("section", {"class" : "article_body"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_T.append(temp_dict)
-
-        elif "nybooks" in url and code == "x":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The New York Review of Books: '
-            headline = soup.find_all('h2')
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("section", {"class" : "article_body"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_X.append(temp_dict)
-
-        elif "nybooks" in url and code == "m":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The New York Review of Books: '
-            headline = soup.find_all('h2')
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("section", {"class" : "article_body"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_M.append(temp_dict)
-
-
-
-
-        elif "nytimes" in url and code == "h":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The New York Times: '
-            headline = soup.find_all("h6", {"class" : "kicker"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("p", {"class" : "story-body-text story-content"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_H.append(temp_dict)
-
-        elif "nytimes" in url and code == "t":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The New York Times: '
-            headline = soup.find_all("h6", {"class" : "kicker"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("p", {"class" : "story-body-text story-content"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_T.append(temp_dict)
-
-        elif "nytimes" in url and code == "x":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The New York Times: '
-            headline = soup.find_all("h6", {"class" : "kicker"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("p", {"class" : "story-body-text story-content"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_X.append(temp_dict)
-
-        elif "nytimes" in url and code == "m":
-            #opens the url for read access
-            this_url = urllib.urlopen(url).read()
-            #creates a new BS holder based on the URL
-            soup = BeautifulSoup(this_url, 'lxml')
-
-            #creates the headline section
-            headline_text = 'The New York Times: '
-            headline = soup.find_all("h6", {"class" : "kicker"})
-            for element in headline:
-                    headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the date section
-            #initializes the variable
-            date_text = ""
-            #finds the relevant section
-            #didn't look for this
-            date = soup.find_all("div", {"class" : "span8 text-left"})
-            #isolates the content of the variable and strips out the html
-            for element in date:
-                    date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the author section
-            #initializes the variable
-            author_text = ""
-            #finds the relevant section
-            #didn't look for this
-            author = soup.find_all("a", {"class" : "nothing"})
-            #isolates the content of the variable and strips out the html
-            for element in author:
-                    author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
-
-            #creates the body text
-            article_text = ""
-            #This finds each paragraph
-            article = soup.find_all("p", {"class" : "story-body-text story-content"})
-            #for each paragraph
-            for element in article:
-                #add a line break and then the text part of the paragraph
-                #the .encode part fixes unicode bullshit
-                article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
-
-            #This takes the elements and writes them to the dict
-            #temp_dict will hold the info from this entry
-            temp_dict = {}
-            #this will load the variables into the temp_dict
-            temp_dict['url'] = url
-            temp_dict['story_title'] = headline_text
-            temp_dict['author'] = author_text
-            temp_dict['date'] = date_text
-            temp_dict['story_body'] = article_text
-            temp_dict['uid'] = UID
-            #now that the temp_dict is full, append it to holder
-            holder_cat_M.append(temp_dict)
+        #
+        # elif "1843magazine" in url and code == "h":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = '1843 Magazine: '
+        #     headline = soup.find_all('h1')
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     date = soup.find_all("span", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     author = soup.find_all("p", {"class" : "footer-credits__author"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find("section", {"class" : "article__body page-and-article-content"}).findAll('p')
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_H.append(temp_dict)
+        #
+        # elif "1843magazine" in url and code == "t":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = '1843 Magazine: '
+        #     headline = soup.find_all('h1')
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     date = soup.find_all("span", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     author = soup.find_all("p", {"class" : "footer-credits__author"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find("section", {"class" : "article__body page-and-article-content"}).findAll('p')
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_T.append(temp_dict)
+        #
+        # elif "1843magazine" in url and code == "x":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = '1843 Magazine: '
+        #     headline = soup.find_all('h1')
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     date = soup.find_all("span", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     author = soup.find_all("p", {"class" : "footer-credits__author"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find("section", {"class" : "article__body page-and-article-content"}).findAll('p')
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_X.append(temp_dict)
+        #
+        # elif "1843magazine" in url and code == "m":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = '1843 Magazine: '
+        #     headline = soup.find_all('h1')
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     date = soup.find_all("span", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     author = soup.find_all("p", {"class" : "footer-credits__author"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find("section", {"class" : "article__body page-and-article-content"}).findAll('p')
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_M.append(temp_dict)
+        #
+        #
+        #
+        #
+        # elif "chinafilminsider" in url and code == "h":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'China Film Insider: '
+        #     headline = soup.find_all("h1", {"class" : "entry-title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("span", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "nothing"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_H.append(temp_dict)
+        #
+        # elif "chinafilminsider" in url and code == "t":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'China Film Insider: '
+        #     headline = soup.find_all("h1", {"class" : "entry-title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("span", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "nothing"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_T.append(temp_dict)
+        #
+        # elif "chinafilminsider" in url and code == "x":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'China Film Insider: '
+        #     headline = soup.find_all("h1", {"class" : "entry-title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("span", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "nothing"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_X.append(temp_dict)
+        #
+        # elif "chinafilminsider" in url and code == "m":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'China Film Insider: '
+        #     headline = soup.find_all("h1", {"class" : "entry-title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("span", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "nothing"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_M.append(temp_dict)
+        #
+        #
+        #
+        # elif "thediplomat" in url and code == "h":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The Diplomat: '
+        #     headline = soup.find_all("h1", {"itemprop" : "name"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("h2", {"class" : "date-header"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "postBody ng-scope"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_H.append(temp_dict)
+        #
+        # elif "thediplomat" in url and code == "t":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The Diplomat: '
+        #     headline = soup.find_all("h1", {"itemprop" : "name"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("h2", {"class" : "date-header"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "postBody ng-scope"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_T.append(temp_dict)
+        #
+        # elif "thediplomat" in url and code == "x":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The Diplomat: '
+        #     headline = soup.find_all("h1", {"itemprop" : "name"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("h2", {"class" : "date-header"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "postBody ng-scope"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_X.append(temp_dict)
+        #
+        # elif "thediplomat" in url and code == "m":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The Diplomat: '
+        #     headline = soup.find_all("h1", {"itemprop" : "name"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("h2", {"class" : "date-header"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "postBody ng-scope"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_M.append(temp_dict)
+        #
+        #
+        #
+        #
+        # elif "eastasiaforum" in url and code == "h":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'East Asia Forum: '
+        #     headline = soup.find_all('h1')
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("h2", {"class" : "date-header"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("section", {"class" : "content"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_H.append(temp_dict)
+        #
+        # elif "eastasiaforum" in url and code == "t":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'East Asia Forum: '
+        #     headline = soup.find_all('h1')
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("h2", {"class" : "date-header"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("section", {"class" : "content"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_T.append(temp_dict)
+        #
+        # elif "eastasiaforum" in url and code == "x":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'East Asia Forum: '
+        #     headline = soup.find_all('h1')
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("h2", {"class" : "date-header"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("section", {"class" : "content"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_X.append(temp_dict)
+        #
+        # elif "eastasiaforum" in url and code == "m":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'East Asia Forum: '
+        #     headline = soup.find_all('h1')
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("h2", {"class" : "date-header"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("section", {"class" : "content"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_M.append(temp_dict)
+        #
+        #
+        #
+        #
+        # elif "economist.com" in url and code == "h":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The Economist: '
+        #     headline = soup.find_all("span", {"class" : "flytitle-and-title__title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("h2", {"class" : "date-header"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "blog-post__text"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_H.append(temp_dict)
+        #
+        # elif "economist.com" in url and code == "t":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The Economist: '
+        #     headline = soup.find_all("span", {"class" : "flytitle-and-title__title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("h2", {"class" : "date-header"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "blog-post__text"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_T.append(temp_dict)
+        #
+        # elif "economist.com" in url and code == "x":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The Economist: '
+        #     headline = soup.find_all("span", {"class" : "flytitle-and-title__title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("h2", {"class" : "date-header"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "blog-post__text"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_X.append(temp_dict)
+        #
+        # elif "economist.com" in url and code == "m":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The Economist: '
+        #     headline = soup.find_all("span", {"class" : "flytitle-and-title__title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("h2", {"class" : "date-header"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "blog-post__text"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_M.append(temp_dict)
+        #
+        #
+        #
+        #
+        # elif "hongkongfp" in url and code == "h":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'Hong Kong Free Press: '
+        #     headline = soup.find_all("h1", {"class" : "entry-title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #unneeded
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "nothing"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_H.append(temp_dict)
+        #
+        # elif "hongkongfp" in url and code == "t":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'Hong Kong Free Press: '
+        #     headline = soup.find_all("h1", {"class" : "entry-title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #unneeded
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "nothing"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_T.append(temp_dict)
+        #
+        # elif "hongkongfp" in url and code == "x":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'Hong Kong Free Press: '
+        #     headline = soup.find_all("h1", {"class" : "entry-title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #unneeded
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "nothing"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_X.append(temp_dict)
+        #
+        # elif "hongkongfp" in url and code == "m":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'Hong Kong Free Press: '
+        #     headline = soup.find_all("h1", {"class" : "entry-title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #unneeded
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "nothing"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_M.append(temp_dict)
+        #
+        #
+        #
+        #
+        # elif "savetibet" in url and code == "h":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'International Campaign for Tibet: '
+        #     headline = soup.find_all("span", {"class" : "trail-end"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "nothing"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_H.append(temp_dict)
+        #
+        # elif "savetibet" in url and code == "t":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'International Campaign for Tibet: '
+        #     headline = soup.find_all("span", {"class" : "trail-end"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "nothing"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_T.append(temp_dict)
+        #
+        # elif "savetibet" in url and code == "x":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'International Campaign for Tibet: '
+        #     headline = soup.find_all("span", {"class" : "trail-end"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "nothing"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_X.append(temp_dict)
+        #
+        # elif "savetibet" in url and code == "m":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'International Campaign for Tibet: '
+        #     headline = soup.find_all("span", {"class" : "trail-end"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "nothing"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_M.append(temp_dict)
+        #
+        #
+        #
+        #
+        # elif "medium.com" in url and code == "h":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The Medium: '
+        #     headline = soup.find_all("p", {"class" : "graf graf--p graf--leading"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("p", {"class" : "graf graf--p graf-after--p"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_H.append(temp_dict)
+        #
+        # elif "medium.com" in url and code == "t":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The Medium: '
+        #     headline = soup.find_all("p", {"class" : "graf graf--p graf--leading"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("p", {"class" : "graf graf--p graf-after--p"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_T.append(temp_dict)
+        #
+        # elif "medium.com" in url and code == "x":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The Medium: '
+        #     headline = soup.find_all("p", {"class" : "graf graf--p graf--leading"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("p", {"class" : "graf graf--p graf-after--p"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_X.append(temp_dict)
+        #
+        # elif "medium.com" in url and code == "m":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The Medium: '
+        #     headline = soup.find_all("p", {"class" : "graf graf--p graf--leading"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("p", {"class" : "graf graf--p graf-after--p"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_M.append(temp_dict)
+        #
+        #
+        #
+        # elif "nationalinterest" in url and code == "h":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The National Interest: '
+        #     headline = soup.find_all("h1", {"class" : "page-title title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "node-content"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_H.append(temp_dict)
+        #
+        # elif "nationalinterest" in url and code == "t":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The National Interest: '
+        #     headline = soup.find_all("h1", {"class" : "page-title title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "node-content"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_T.append(temp_dict)
+        #
+        # elif "nationalinterest" in url and code == "x":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The National Interest: '
+        #     headline = soup.find_all("h1", {"class" : "page-title title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "node-content"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_X.append(temp_dict)
+        #
+        # elif "nationalinterest" in url and code == "m":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The National Interest: '
+        #     headline = soup.find_all("h1", {"class" : "page-title title"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("div", {"class" : "node-content"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_M.append(temp_dict)
+        #
+        #
+        #
+        # elif "nybooks" in url and code == "h":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The New York Review of Books: '
+        #     headline = soup.find_all('h2')
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("section", {"class" : "article_body"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_H.append(temp_dict)
+        #
+        # elif "nybooks" in url and code == "t":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The New York Review of Books: '
+        #     headline = soup.find_all('h2')
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("section", {"class" : "article_body"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_T.append(temp_dict)
+        #
+        # elif "nybooks" in url and code == "x":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The New York Review of Books: '
+        #     headline = soup.find_all('h2')
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("section", {"class" : "article_body"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_X.append(temp_dict)
+        #
+        # elif "nybooks" in url and code == "m":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The New York Review of Books: '
+        #     headline = soup.find_all('h2')
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("section", {"class" : "article_body"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_M.append(temp_dict)
+        #
+        #
+        #
+        #
+        # elif "nytimes" in url and code == "h":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The New York Times: '
+        #     headline = soup.find_all("h6", {"class" : "kicker"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("p", {"class" : "story-body-text story-content"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_H.append(temp_dict)
+        #
+        # elif "nytimes" in url and code == "t":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The New York Times: '
+        #     headline = soup.find_all("h6", {"class" : "kicker"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("p", {"class" : "story-body-text story-content"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_T.append(temp_dict)
+        #
+        # elif "nytimes" in url and code == "x":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The New York Times: '
+        #     headline = soup.find_all("h6", {"class" : "kicker"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("p", {"class" : "story-body-text story-content"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_X.append(temp_dict)
+        #
+        # elif "nytimes" in url and code == "m":
+        #     #opens the url for read access
+        #     this_url = urllib.urlopen(url).read()
+        #     #creates a new BS holder based on the URL
+        #     soup = BeautifulSoup(this_url, 'lxml')
+        #
+        #     #creates the headline section
+        #     headline_text = 'The New York Times: '
+        #     headline = soup.find_all("h6", {"class" : "kicker"})
+        #     for element in headline:
+        #             headline_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the date section
+        #     #initializes the variable
+        #     date_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     date = soup.find_all("div", {"class" : "span8 text-left"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in date:
+        #             date_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the author section
+        #     #initializes the variable
+        #     author_text = ""
+        #     #finds the relevant section
+        #     #didn't look for this
+        #     author = soup.find_all("a", {"class" : "nothing"})
+        #     #isolates the content of the variable and strips out the html
+        #     for element in author:
+        #             author_text += ''.join(element.findAll(text = True)).encode('utf-8').strip()
+        #
+        #     #creates the body text
+        #     article_text = ""
+        #     #This finds each paragraph
+        #     article = soup.find_all("p", {"class" : "story-body-text story-content"})
+        #     #for each paragraph
+        #     for element in article:
+        #         #add a line break and then the text part of the paragraph
+        #         #the .encode part fixes unicode bullshit
+        #         article_text += '<p>' + ''.join(element.findAll(text = True)).encode('utf-8').strip() + '</p>'
+        #
+        #     #This takes the elements and writes them to the dict
+        #     #temp_dict will hold the info from this entry
+        #     temp_dict = {}
+        #     #this will load the variables into the temp_dict
+        #     temp_dict['url'] = url
+        #     temp_dict['story_title'] = headline_text
+        #     temp_dict['author'] = author_text
+        #     temp_dict['date'] = date_text
+        #     temp_dict['story_body'] = article_text
+        #     temp_dict['uid'] = UID
+        #     #now that the temp_dict is full, append it to holder
+        #     holder_cat_M.append(temp_dict)
 
 
         #if the input URL isn't in the list above, this message will be returned
